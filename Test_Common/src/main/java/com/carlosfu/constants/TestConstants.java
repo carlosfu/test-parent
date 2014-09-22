@@ -1,7 +1,7 @@
 package com.carlosfu.constants;
 
 public class TestConstants {
-    /** redis-mq相关 github*/
+    /** redis-mq相关 */
     public static final String CARLOSFU_QUEUE_TYPE = "meixi:hehe:hehe";
     public static final String CARLOSFU_TOPIC_TYPE = "carlosfu:kaka:cafu:ronaldo:topic";
     public static final String UGC_TOPIC_TYPE = "videoService:ugc:changed:topic";
