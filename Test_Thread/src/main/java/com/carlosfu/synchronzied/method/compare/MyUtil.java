@@ -3,7 +3,7 @@ package com.carlosfu.synchronzied.method.compare;
 import java.util.concurrent.TimeUnit;
 
 /**
- * 两个静态方法用synchronized, 一个普通方法用synchronized
+ * 两个静态方法用synchronized,  一个普通方法用synchronized
  * 
  * @author leifu
  * @Time 2014年9月18日
