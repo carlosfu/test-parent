@@ -1,7 +1,5 @@
 package com.carlosfu.tradition.match.wait_notify;
 
-import java.util.concurrent.TimeUnit;
-
 /**
  * 运动员
  * 
