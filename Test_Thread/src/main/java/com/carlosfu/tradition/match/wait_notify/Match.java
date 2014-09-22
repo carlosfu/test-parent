@@ -1,4 +1,4 @@
-package com.carlosfu.tradition.wait_notify.match;
+package com.carlosfu.tradition.match.wait_notify;
 
 /**
  * 比赛

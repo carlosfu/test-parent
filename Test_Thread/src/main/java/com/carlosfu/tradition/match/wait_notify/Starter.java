@@ -1,4 +1,4 @@
-package com.carlosfu.tradition.wait_notify.match;
+package com.carlosfu.tradition.match.wait_notify;
 
 public class Starter {
 	public synchronized void shoutAndStart() throws InterruptedException{
