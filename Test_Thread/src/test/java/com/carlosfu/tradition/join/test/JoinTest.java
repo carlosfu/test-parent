@@ -2,7 +2,7 @@ package com.carlosfu.tradition.join.test;
 
 import org.junit.Test;
 
-import com.carlosfu.tradition.WorkerThread;
+import com.carlosfu.tradition.thread.WorkerThread;
 import com.carlosfu.util.DateUtil;
 
 /**
