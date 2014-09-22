@@ -1,4 +1,4 @@
-package com.carlosfu.syn.statics;
+package com.carlosfu.synchronzied.method.compare;
 
 import java.util.concurrent.TimeUnit;
 

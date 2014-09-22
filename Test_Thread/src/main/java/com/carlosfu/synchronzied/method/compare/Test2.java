@@ -1,4 +1,4 @@
-package com.carlosfu.syn.statics;
+package com.carlosfu.synchronzied.method.compare;
 
 /**
  * 1个对象，两个线程，分别调用普通方法锁，会锁住线程

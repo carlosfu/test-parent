@@ -1,4 +1,4 @@
-package com.carlosfu.tradition;
+package com.carlosfu.tradition.thread;
 
 import java.util.concurrent.TimeUnit;
 

@@ -1,4 +1,4 @@
-package com.carlosfu.syn.statics;
+package com.carlosfu.synchronzied.method.compare;
 
 /**
  * 两个线程同时调用不同的静态函数(都有synchronized)，会锁住线程
