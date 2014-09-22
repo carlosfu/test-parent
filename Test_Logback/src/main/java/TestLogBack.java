@@ -1,3 +1,5 @@
+import java.util.concurrent.TimeUnit;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -15,7 +17,7 @@ public class TestLogBack {
             String value = System.getProperty("java.awt.headless");
             logger.info("=============info message:{}=============", value);
             logger.debug("=============debug message:{}=============", value);
-            Thread.sleep(1000);
+            TimeUnit.SECONDS.sleep(1);
         }
 
     }
