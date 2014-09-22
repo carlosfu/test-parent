@@ -1,9 +1,9 @@
 package com.carlosfu.tradition.wait_notify.producerconsumer;
 
 public class Producer implements Runnable {
-    Q q = null;
+    Queue q = null;
 
-    public Producer(Q q) {
+    public Producer(Queue q) {
         this.q = q;
         (new Thread(this, "Producer")).start();
     }

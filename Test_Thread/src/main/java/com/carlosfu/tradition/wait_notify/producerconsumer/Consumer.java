@@ -1,8 +1,8 @@
 package com.carlosfu.tradition.wait_notify.producerconsumer;
 public class Consumer implements Runnable {
-	Q q = null;
+	Queue q = null;
 	
-	public Consumer(Q q) {
+	public Consumer(Queue q) {
 		this.q = q;
 		(new Thread(this, "Consumer")).start();
 	}
