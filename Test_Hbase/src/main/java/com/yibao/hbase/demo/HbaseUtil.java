@@ -14,7 +14,7 @@ import org.apache.hadoop.hbase.filter.CompareFilter.CompareOp;
 import org.apache.hadoop.hbase.filter.SingleColumnValueFilter;
 
 /**
- * @author yan.zhang
+ * @author yan.zhang 无效不能使用
  * hbase提供的数据库操作api演示demo
  */
 public class HbaseUtil {
