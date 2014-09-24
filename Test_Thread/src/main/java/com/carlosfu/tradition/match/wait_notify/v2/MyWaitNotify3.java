@@ -1,6 +1,7 @@
 package com.carlosfu.tradition.match.wait_notify.v2;
 
 /**
+ * 假唤醒
  * 由于莫名其妙的原因，线程有可能在没有调用过notify()和notifyAll()的情况下醒来。这就是所谓的假唤醒（spurious
  * wakeups）。无端端地醒过来了。
  * 
