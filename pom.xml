@@ -19,6 +19,7 @@
 		<module>Test_Common</module>
 		<module>Test_Rocket_Mq_Producer</module>
    		<module>Test_Rocket_Mq_Consumer</module>
+   		<module>Test_Redis</module>
     	<module>Test_Thread</module>
     	<module>Test_Reg</module>
     	<module>Test_IO</module>
