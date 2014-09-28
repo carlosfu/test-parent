@@ -62,7 +62,7 @@ public class LockMethodClass {
 	}
 
 	/**
-	 * 普通的锁 不能实现重入性
+	 * 自定义重入锁 实现重入性
 	 * 
 	 * @throws InterruptedException
 	 */
@@ -84,7 +84,7 @@ public class LockMethodClass {
 	}
 
 	/**
-	 * jdk自带的重入锁
+	 * jdk自带的重入锁，实现重入性
 	 * 
 	 * @throws InterruptedException
 	 */
