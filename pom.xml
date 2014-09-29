@@ -24,9 +24,10 @@
     	<module>Test_Reg</module>
     	<module>Test_IO</module>
     	<module>Test_Java</module>
+    	<module>Test_Jar_Duplicate_DifVersion</module>
   </modules>
 	<properties>
-		<test_common.version>0.0.1-SNAPSHOT</test_common.version>
+		<test_common.version>1.0-SNAPSHOT</test_common.version>
 		<jstl>1.2</jstl>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<hadoop-core>1.0.3</hadoop-core>

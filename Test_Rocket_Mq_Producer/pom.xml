@@ -10,7 +10,7 @@
 	</parent>
 	<artifactId>Test_Rocket_Mq_Producer</artifactId>
 	<name>Test_Rocket_Mq_Producer</name>
-	<url>http://maven.apache.org</url>
+	<description>rocket mq生产者简单使用</description>
 	<dependencies>
 		<dependency>
 			<groupId>junit</groupId>

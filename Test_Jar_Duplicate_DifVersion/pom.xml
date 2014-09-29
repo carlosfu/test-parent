@@ -8,17 +8,16 @@
 		<artifactId>test-parent</artifactId>
 		<version>1.0-SNAPSHOT</version>
 	</parent>
-	<artifactId>Test_Java</artifactId>
-	<name>Test_Java</name>
-	<description>
-		java的那些月经贴，比如字符串比较，包装类，try-catch-final-return等等
-		参考了一些面试题和丁一(http://www.ticmy.com/?tag=%e6%9c%88%e7%bb%8f%e8%b4%b4%e9%87%8a%e7%96%91)
-	</description>
+	<artifactId>Test_Jar_Duplicate_DifVersion</artifactId>
+	<name>Test_Jar_Duplicate_DifVersion</name>
+	<url>http://maven.apache.org</url>
+	<description>试验一个工程引入两个同名jar包的不同版本到底会出现什么情况(同包，同类，同方法名，不同方法实现)</description>
 	<dependencies>
 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
 			<scope>test</scope>
 		</dependency>
+		
 	</dependencies>
 </project>

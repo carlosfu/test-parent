@@ -7,11 +7,9 @@
 	</parent>
 	<modelVersion>4.0.0</modelVersion>
 	<artifactId>Test_LoadJmeter_VideoService</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
 	<packaging>jar</packaging>
-
 	<name>Test_LoadJmeter_VideoService</name>
-	<url>http://maven.apache.org</url>
+	<description>jmeter load学习</description>
 
 	<dependencies>
 		<!-- videoService服务 -->

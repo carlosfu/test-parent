@@ -10,7 +10,7 @@
 	</parent>
 	<artifactId>Test_Reg</artifactId>
 	<name>Test_Reg</name>
-	<url>http://maven.apache.org</url>
+	<description>正则表达式,已经放到Test_Java</description>
 	<dependencies>
 		<dependency>
 			<groupId>junit</groupId>

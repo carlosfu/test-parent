@@ -7,12 +7,9 @@
 	</parent>
 	<modelVersion>4.0.0</modelVersion>
 	<artifactId>Test_Common</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
 	<packaging>jar</packaging>
-
 	<name>Test_Common</name>
-	<url>http://maven.apache.org</url>
-
+	<description>一些常量</description>
 	<dependencies>
 	</dependencies>
 </project>

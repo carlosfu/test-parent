@@ -8,9 +8,8 @@
 	<modelVersion>4.0.0</modelVersion>
 	<artifactId>Test_VideoServiceCosumer</artifactId>
 	<packaging>war</packaging>
-	<version>0.0.1-SNAPSHOT</version>
 	<name>Test_VideoServiceCosumer Maven Webapp</name>
-	<url>http://maven.apache.org</url>
+	<description>videoservice 测试</description>
 
 	<dependencies>
 		<dependency>

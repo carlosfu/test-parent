@@ -7,11 +7,9 @@
 	</parent>
 	<modelVersion>4.0.0</modelVersion>
 	<artifactId>Test_Mq_Producer</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
 	<packaging>jar</packaging>
-
 	<name>Test_Mq_Producer</name>
-	<url>http://maven.apache.org</url>
+	<description>redis mq生产者测试</description>
 
 	<dependencies>
 		<dependency>

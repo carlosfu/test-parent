@@ -7,11 +7,9 @@
 		<version>1.0-SNAPSHOT</version>
 	</parent>
 	<artifactId>Test_Logback</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
 	<packaging>jar</packaging>
-
 	<name>Test_Logback</name>
-	<url>http://maven.apache.org</url>
+	<description>logback简单测试</description>
 
 	<dependencies>
 		<dependency>

@@ -10,7 +10,7 @@
 	</parent>
 	<artifactId>Test_Thread</artifactId>
 	<name>Test_Thread</name>
-	<url>http://maven.apache.org</url>
+	<description>java多线程、并发库学习(important)</description>
 	<dependencies>
 		<dependency>
 			<groupId>junit</groupId>
