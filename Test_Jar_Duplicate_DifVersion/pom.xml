@@ -18,6 +18,17 @@
 			<artifactId>junit</artifactId>
 			<scope>test</scope>
 		</dependency>
+		<dependency>
+			<groupId>com.sohu.tv</groupId>
+			<artifactId>Test_Common</artifactId>
+			<version>${test_common.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.sohu.tv</groupId>
+			<artifactId>Test_Java</artifactId>
+			<version>${test_java.version}</version>
+		</dependency>
+		
 		
 	</dependencies>
 </project>
