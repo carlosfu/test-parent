@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ehcache xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="http://ehcache.org/ehcache.xsd" name="mobil_service_config">
+	
+	<cache name="carlosfuServiceOffHeapCache" maxBytesLocalHeap="1M"
+		maxBytesLocalOffHeap="16M" copyOnRead="false" statistics="true"
+		eternal="false">
+	</cache>
+
+	<sizeOfPolicy maxDepth="2000" maxDepthExceededBehavior="abort" />
+
+	<cache name="carlosfuServiceHeapCache" maxEntriesLocalHeap="80000"
+		copyOnRead="false" statistics="true" eternal="false">
+	</cache>
+
+</ehcache>

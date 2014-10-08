@@ -25,6 +25,7 @@
     	<module>Test_Java</module>
     	<module>Test_Jar_Duplicate_DifVersion</module>
     	<module>Test_VisualVm</module>
+    	<module>Test_BigMemory</module>
   </modules>
 	<properties>
 		<test_common.version>1.0-SNAPSHOT</test_common.version>
@@ -74,6 +75,7 @@
 		<indexMQ-redis.version>1.0-SNAPSHOT</indexMQ-redis.version>
 		<indexMQ-rocket.version>1.0-SNAPSHOT</indexMQ-rocket.version>
 		<commons-collections.version>3.2.1</commons-collections.version>
+		<commons-lang.version>2.4</commons-lang.version>
 	</properties>
 	<dependencyManagement>
 		<dependencies>
@@ -646,6 +648,13 @@
 				<artifactId>indexMQ-rocket</artifactId>
 				<version>${indexMQ-rocket.version}</version>
 			</dependency>
+			
+			<dependency>
+				<groupId>commons-lang</groupId>
+				<artifactId>commons-lang</artifactId>
+				<version>${commons-lang.version}</version>
+			</dependency>
+			
 
 		</dependencies>
 	</dependencyManagement>
