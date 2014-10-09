@@ -45,6 +45,21 @@ public class TestOne {
         }
     }
     
+    public void testThree(){
+        String pattern = "vid:(\\w+), pid:(\\w+)";
+        Pattern p = Pattern.compile(pattern);
+        Matcher m = p.matcher("vid:1185234, pid:71069-1218");
+        while (m.find()) {
+            String str1 = m.group(1);
+            String str2 = m.group(2);
+            try {
+                Integer.parseInt(str2);
+            } catch (Exception e) {
+                System.out.println(str1);
+            }
+        }
+    }
+    
     
     
 }
