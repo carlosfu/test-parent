@@ -76,6 +76,7 @@
 		<indexMQ-rocket.version>1.0-SNAPSHOT</indexMQ-rocket.version>
 		<commons-collections.version>3.2.1</commons-collections.version>
 		<commons-lang.version>2.4</commons-lang.version>
+		<commons-logging.version>1.1.1</commons-logging.version>
 	</properties>
 	<dependencyManagement>
 		<dependencies>
@@ -653,6 +654,12 @@
 				<groupId>commons-lang</groupId>
 				<artifactId>commons-lang</artifactId>
 				<version>${commons-lang.version}</version>
+			</dependency>
+			
+			<dependency>
+				<groupId>commons-logging</groupId>
+				<artifactId>commons-logging</artifactId>
+				<version>${commons-logging.version}</version>
 			</dependency>
 			
 

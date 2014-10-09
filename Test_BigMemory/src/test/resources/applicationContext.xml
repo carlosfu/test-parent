@@ -2,8 +2,27 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans
-           http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
-	<bean id="demoService" class="com.carlosfu.service.DemoService">
-		<property name="name" value="hehe"></property>
-	</bean>
+           http://www.springframework.org/schema/beans/spring-beans-3.0.xsd" default-autowire="byName">
+           
+	<bean id="ehcacheFactory" class="com.carlosfu.bigmemory.factory.EhcacheFactory" init-method="init">
+        <property name="ehcacheXmlPath" value="ehcache.xml"/>
+        <property name="offheapCacheName" value="carlosfuServiceOffHeapCache"/>
+        <property name="heapCacheName" value="carlosfuServiceHeapCache"/>
+    </bean>
+
+    <bean id="heapEhcache" factory-bean="ehcacheFactory" factory-method="getHeapEhcache"/>
+
+    <bean id="offheapEhcache" factory-bean="ehcacheFactory" factory-method="getOffHeapEhcache"/>
+
+    <bean id="offHeapDataComponent" class="com.carlosfu.bigmemory.data.EhCacheOffHeapDataComponentImpl">
+        <property name="cache" ref="offheapEhcache"/>
+        <property name="protostuffSerializer" ref="protostuffSerializer"/>
+    </bean>
+
+    <bean id="heapDataComponent" class="com.carlosfu.bigmemory.data.EhCacheHeapDataComponentImpl">
+        <property name="cache" ref="heapEhcache"/>
+    </bean>
+
+    <bean id="protostuffSerializer" class="com.carlosfu.serialize.ProtostuffSerializer"/>
+    
 </beans>

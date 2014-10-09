@@ -8,7 +8,9 @@ import com.dyuproject.protostuff.runtime.RuntimeSchema;
 import java.util.concurrent.ConcurrentHashMap;
 
 /**
- * Created by yijunzhang on 14-4-10.
+ * protostuff序列化工具
+ * @author leifu(original: mobil)
+ * @Time 2014-10-9
  */
 public class ProtostuffSerializer {
 

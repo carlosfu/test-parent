@@ -3,7 +3,8 @@ package com.carlosfu.serialize;
 import java.io.Serializable;
 
 /**
- * Created by yijunzhang on 14-4-2.
+ * @author leifu(original: mobil)
+ * @Time 2014-10-9
  */
 public class VO<T> implements Serializable {
 

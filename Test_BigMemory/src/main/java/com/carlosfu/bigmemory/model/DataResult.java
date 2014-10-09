@@ -1,13 +1,16 @@
-package com.carlosfu.bigmemory.util;
+package com.carlosfu.bigmemory.model;
 
 
 import java.io.Serializable;
 
+import com.carlosfu.bigmemory.enums.DataLevelEnum;
+import com.carlosfu.bigmemory.enums.DataStatusEnum;
+
 /**
  * 封装缓存返回结果
- * User: yijunzhang
- * Date: 13-11-14
- * Time: 下午2:35
+ * @author leifu(original: mobil)
+ * @Time 2014-10-9
+ * @param <T>
  */
 public class DataResult<T extends Serializable> {
     private DataStatusEnum status;

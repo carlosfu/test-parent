@@ -1,10 +1,9 @@
-package com.carlosfu.bigmemory.util;
+package com.carlosfu.bigmemory.enums;
 
 /**
  * 数据操作返回状态
- * User: yijunzhang
- * Date: 13-11-14
- * Time: 下午2:40
+ * @author leifu(original: mobil)
+ * @Time 2014-10-9
  */
 public enum DataStatusEnum {
     SUCCESS(0, "success"),

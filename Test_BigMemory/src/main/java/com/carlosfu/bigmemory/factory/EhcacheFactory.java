@@ -8,16 +8,13 @@ import org.slf4j.LoggerFactory;
 
 import javax.management.MBeanServer;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.InputStream;
 import java.lang.management.ManagementFactory;
 
 /**
  * ehcache工厂类
  * 
- * @author leifu(original author:yijunzhang)
+ * @author leifu(original: mobil)
  * @Time 2014-10-8
  */
 public class EhcacheFactory {
@@ -45,20 +42,17 @@ public class EhcacheFactory {
 
 	public void init() {
 		InputStream inputStream;
-		try {
-			inputStream = new FileInputStream(new File(ehcacheXmlPath));
-			cacheManager = CacheManager.newInstance(inputStream);
-		} catch (FileNotFoundException e) {
-			logger.error(e.getMessage(), e);
-			e.printStackTrace();
-		}
+		inputStream = EhcacheFactory.class.getClassLoader()
+				.getResourceAsStream(ehcacheXmlPath);
+		cacheManager = CacheManager.newInstance(inputStream);
 		MBeanServer mBeanServer = ManagementFactory.getPlatformMBeanServer();
 		ManagementService.registerMBeans(cacheManager, mBeanServer, false,
 				true, true, true);
 	}
-	
+
 	/**
 	 * 获取本地堆缓存
+	 * 
 	 * @return
 	 */
 	public Ehcache getHeapEhcache() {
@@ -67,6 +61,7 @@ public class EhcacheFactory {
 
 	/**
 	 * 获取本地堆外缓存
+	 * 
 	 * @return
 	 */
 	public Ehcache getOffHeapEhcache() {
@@ -84,7 +79,5 @@ public class EhcacheFactory {
 	public void setOffheapCacheName(String offheapCacheName) {
 		this.offheapCacheName = offheapCacheName;
 	}
-
-	
 
 }

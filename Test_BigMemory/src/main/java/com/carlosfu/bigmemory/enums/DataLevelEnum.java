@@ -1,10 +1,9 @@
-package com.carlosfu.bigmemory.util;
+package com.carlosfu.bigmemory.enums;
 
 /**
  * 数据服务返回出处
- * User: yijunzhang
- * Date: 13-11-14
- * Time: 下午2:29
+ * @author leifu(original: mobil)
+ * @Time 2014-10-9
  */
 public enum DataLevelEnum {
     LOCALCACHE(1, "localCache"),

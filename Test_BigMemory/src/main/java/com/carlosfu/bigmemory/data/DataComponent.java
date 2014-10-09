@@ -3,14 +3,13 @@ package com.carlosfu.bigmemory.data;
 
 import java.io.Serializable;
 
-import com.carlosfu.bigmemory.util.DataResult;
-import com.carlosfu.bigmemory.util.Key;
+import com.carlosfu.bigmemory.model.DataResult;
 
 /**
- * 数据访问组件key-value抽象接口
- * User: yijunzhang
- * Date: 13-11-15
- * Time: 上午9:49
+ * 数据访问组件
+ * @author leifu(original: mobil)
+ * @Time 2014-10-9
+ * @param <V>
  */
 public interface DataComponent<V extends Serializable> {
 
@@ -21,7 +20,7 @@ public interface DataComponent<V extends Serializable> {
      * @param value
      * @return
      */
-    DataResult<Boolean> add(final Key key, final V value);
+    DataResult<Boolean> add(String key, int exp, final V value);
 
     /**
      * 添加或替换缓存，如果成功返回对应数据,不存在或超时等返回对应错误状态 @see DataStatusEnum
@@ -30,7 +29,7 @@ public interface DataComponent<V extends Serializable> {
      * @param value
      * @return
      */
-    DataResult<Boolean> set(final Key key, final V value);
+    DataResult<Boolean> set(String key, int exp, final V value);
 
     /**
      * 删除缓存，如果成功返回对应数据,不存在或超时等返回对应错误状态 @see DataStatusEnum
@@ -38,7 +37,7 @@ public interface DataComponent<V extends Serializable> {
      * @param key
      * @return
      */
-    DataResult<Boolean> remove(final Key key);
+    DataResult<Boolean> remove(String key);
 
     /**
      * 获取缓存结果，如果成功返回数据,不存在或超时等返回对应错误状态 @see DataStatusEnum
@@ -46,6 +45,6 @@ public interface DataComponent<V extends Serializable> {
      * @param key
      * @return
      */
-    DataResult<V> get(final Key key);
+    DataResult<V> get(String key);
 
 }
