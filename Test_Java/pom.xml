@@ -11,7 +11,7 @@
 	<artifactId>Test_Java</artifactId>
 	<name>Test_Java</name>
 	<description>
-		java的那些月经贴，比如字符串比较，包装类，try-catch-final-return等等
+		java的那些月经贴，比如字符串比较，包装类，try-catch-final-return, spi等等
 		参考了一些面试题和丁一(http://www.ticmy.com/?tag=%e6%9c%88%e7%bb%8f%e8%b4%b4%e9%87%8a%e7%96%91)
 	</description>
 	<dependencies>
@@ -20,5 +20,13 @@
 			<artifactId>junit</artifactId>
 			<scope>test</scope>
 		</dependency>
+		<dependency>
+			<groupId>ch.qos.logback</groupId>
+			<artifactId>logback-core</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>ch.qos.logback</groupId>
+			<artifactId>logback-classic</artifactId>
+		</dependency>	
 	</dependencies>
 </project>

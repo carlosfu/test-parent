@@ -82,6 +82,21 @@ public class SentinelTest {
        }
    }
    
+   @Test
+   public void testGetSome() {
+       try {
+           try {
+               Map<String, String> set = jedis.hgetAll("drama:manual:recommend:62b7b149c301c129902ce79a94f4e3cd");
+               System.out.println(set);
+           } catch (Exception e) {
+               logger.error(e.getMessage(), e);
+           }
+       } catch (Exception e) {
+           logger.error(e.getMessage(), e);
+       }
+   }
+   
+   
    
     
     /**
