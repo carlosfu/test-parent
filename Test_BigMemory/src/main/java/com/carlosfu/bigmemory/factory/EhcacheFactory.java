@@ -41,8 +41,7 @@ public class EhcacheFactory {
 	private CacheManager cacheManager;
 
 	public void init() {
-		InputStream inputStream;
-		inputStream = EhcacheFactory.class.getClassLoader()
+		InputStream inputStream = EhcacheFactory.class.getClassLoader()
 				.getResourceAsStream(ehcacheXmlPath);
 		cacheManager = CacheManager.newInstance(inputStream);
 		MBeanServer mBeanServer = ManagementFactory.getPlatformMBeanServer();
@@ -56,7 +55,8 @@ public class EhcacheFactory {
 	 * @return
 	 */
 	public Ehcache getHeapEhcache() {
-		return cacheManager.getEhcache(heapCacheName);
+		Ehcache ehCache = cacheManager.getEhcache(heapCacheName);
+		return ehCache;
 	}
 
 	/**
@@ -65,7 +65,8 @@ public class EhcacheFactory {
 	 * @return
 	 */
 	public Ehcache getOffHeapEhcache() {
-		return cacheManager.getEhcache(offheapCacheName);
+		Ehcache ehCache = cacheManager.getEhcache(offheapCacheName);
+		return ehCache;
 	}
 
 	public void setEhcacheXmlPath(String ehcacheXmlPath) {
