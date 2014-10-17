@@ -1,3 +1,4 @@
+package com.carlosfu.logback.level.auto;
 import java.util.concurrent.TimeUnit;
 
 import org.slf4j.Logger;
@@ -9,8 +10,8 @@ import org.slf4j.LoggerFactory;
  * @author leifu
  * @Time 2014年8月22日
  */
-public class TestLogBack {
-    private final static Logger logger = LoggerFactory.getLogger(TestLogBack.class);
+public class TestLogBackLevelAuto {
+    private final static Logger logger = LoggerFactory.getLogger(TestLogBackLevelAuto.class);
 
     public static void main(String[] args) throws InterruptedException {
         while (true) {
