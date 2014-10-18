@@ -32,12 +32,12 @@ public class TestCrawlLog {
 	 */
 	public void initLoggerFactory() {
 		// 收集异常
-		LoggerContext loggerContext = (LoggerContext) LoggerFactory
-				.getILoggerFactory();
-		Logger rootLogger = loggerContext.getLogger(Logger.ROOT_LOGGER_NAME);
-		errorStatisticsAppender.setContext(loggerContext);
-		errorStatisticsAppender.start();
-		rootLogger.addAppender(errorStatisticsAppender);
+//		LoggerContext loggerContext = (LoggerContext) LoggerFactory
+//				.getILoggerFactory();
+//		Logger rootLogger = loggerContext.getLogger(Logger.ROOT_LOGGER_NAME);
+//		errorStatisticsAppender.setContext(loggerContext);
+//		errorStatisticsAppender.start();
+//		rootLogger.addAppender(errorStatisticsAppender);
 	}
 
 	/**

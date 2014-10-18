@@ -11,8 +11,12 @@
             <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>
         </encoder>
     </appender>
+    
+    <appender name="STAT" class="com.carlosfu.logback.error.crawl.ErrorStatisticsAppender">
+    </appender>
 
     <root level="DEBUG">
         <appender-ref ref="STDOUT"/>
+        <appender-ref ref="STAT"/>
     </root>
 </configuration>
