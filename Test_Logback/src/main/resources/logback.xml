@@ -14,6 +14,7 @@
     
     <appender name="STAT" class="com.carlosfu.my.logback.error.crawl.ErrorStatisticsAppender">
     </appender>
+    
 
     <root level="DEBUG">
         <appender-ref ref="STDOUT"/>

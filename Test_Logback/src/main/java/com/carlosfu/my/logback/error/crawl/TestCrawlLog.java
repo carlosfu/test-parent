@@ -27,17 +27,24 @@ public class TestCrawlLog {
 	 */
 	private ErrorStatisticsAppender errorStatisticsAppender = new ErrorStatisticsAppender();
 
+	public static void main(String[] args) throws InterruptedException {
+		TestCrawlLog test = new TestCrawlLog();
+//		test.initLoggerFactory();
+		test.generateException(120);
+		test.printExceptionNameCountMap();
+	}
+	
 	/**
-	 * rootLogger添加自定义appende，这样就可以收集异常信息
+	 * rootLogger添加自定义appender，这样就可以收集异常信息
 	 */
 	public void initLoggerFactory() {
 		// 收集异常
-//		LoggerContext loggerContext = (LoggerContext) LoggerFactory
-//				.getILoggerFactory();
-//		Logger rootLogger = loggerContext.getLogger(Logger.ROOT_LOGGER_NAME);
-//		errorStatisticsAppender.setContext(loggerContext);
-//		errorStatisticsAppender.start();
-//		rootLogger.addAppender(errorStatisticsAppender);
+		LoggerContext loggerContext = (LoggerContext) LoggerFactory
+				.getILoggerFactory();
+		Logger rootLogger = loggerContext.getLogger(Logger.ROOT_LOGGER_NAME);
+		errorStatisticsAppender.setContext(loggerContext);
+		errorStatisticsAppender.start();
+		rootLogger.addAppender(errorStatisticsAppender);
 	}
 
 	/**
@@ -67,13 +74,6 @@ public class TestCrawlLog {
 	 */
 	public void printExceptionNameCountMap() {
 		System.out.println(ErrorStatisticsAppender.ERROR_NAME_VALUE_MAP);
-	}
-
-	public static void main(String[] args) throws InterruptedException {
-		TestCrawlLog test = new TestCrawlLog();
-		test.initLoggerFactory();
-		test.generateException(120);
-		test.printExceptionNameCountMap();
 	}
 
 }
