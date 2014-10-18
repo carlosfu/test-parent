@@ -12,7 +12,7 @@
         </encoder>
     </appender>
     
-    <appender name="STAT" class="com.carlosfu.logback.error.crawl.ErrorStatisticsAppender">
+    <appender name="STAT" class="com.carlosfu.my.logback.error.crawl.ErrorStatisticsAppender">
     </appender>
 
     <root level="DEBUG">
