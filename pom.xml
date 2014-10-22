@@ -13,7 +13,6 @@
 		<module>Test_VideoServiceCosumer</module>
 		<module>Test_LoadJmeter_VideoService</module>
 		<module>Test_Logback</module>
-		<module>Test_Customer_Spring_Defination</module>
 		<module>Test_Mobil_Client</module>
 		<module>Test_Hbase</module>
 		<module>Test_Common</module>
