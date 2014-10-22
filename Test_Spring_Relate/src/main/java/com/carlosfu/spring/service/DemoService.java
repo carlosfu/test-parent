@@ -22,7 +22,7 @@ public class DemoService {
     }
 
     public void say() {
-        System.out.println("name: " + name);
+        System.out.println("Hello " + name);
     }
     
 }

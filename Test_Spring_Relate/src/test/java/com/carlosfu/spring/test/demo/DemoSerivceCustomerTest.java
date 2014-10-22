@@ -1,23 +1,25 @@
 package com.carlosfu.spring.test.demo;
 
+import javax.annotation.Resource;
 
-
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.junit.Test;
 
 import com.carlosfu.spring.service.DemoService;
+import com.carlosfu.spring.test.base.BaseTest;
 
 /**
  * 测试自定义标签
+ * 
  * @author leifu
  * @Time 2014年8月26日
  */
-public class DemoSerivceCustomerTest {
+public class DemoSerivceCustomerTest extends BaseTest {
+	@Resource(name = "testCustom")
+	private DemoService testBean;
 
-    public static void main(String[] args) {
-        String xml = "classpath:test.xml";
-        ApplicationContext context = new ClassPathXmlApplicationContext(new String[] {xml});
-        DemoService testBean = (DemoService) context.getBean("testCustom");
-        testBean.say();
-    }
+	@Test
+	public void testOnly() {
+		testBean.say();
+	}
+
 }
