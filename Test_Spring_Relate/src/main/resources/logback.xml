@@ -1,9 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--
-  Example LOGBACK Configuration File
-  http://logback.qos.ch/manual/configuration.html
-  -->
-<!-- 5秒扫描一次 -->  
 <configuration scan="true" scanPeriod="5 seconds">
 
     <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
