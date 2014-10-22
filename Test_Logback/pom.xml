@@ -3,7 +3,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<parent>
 		<artifactId>test-parent</artifactId>
-		<groupId>com.sohu.tv</groupId>
+		<groupId>com.carlosfu</groupId>
 		<version>1.0-SNAPSHOT</version>
 	</parent>
 	<artifactId>Test_Logback</artifactId>

@@ -4,13 +4,12 @@
 	xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 	<modelVersion>4.0.0</modelVersion>
 	<parent>
-		<groupId>com.sohu.tv</groupId>
+		<groupId>com.carlosfu</groupId>
 		<artifactId>test-parent</artifactId>
 		<version>1.0-SNAPSHOT</version>
 	</parent>
 	<artifactId>Test_Jar_Duplicate_DifVersion</artifactId>
 	<name>Test_Jar_Duplicate_DifVersion</name>
-	<url>http://maven.apache.org</url>
 	<description>试验一个工程引入两个同名jar包的不同版本到底会出现什么情况(同包，同类，同方法名，不同方法实现)</description>
 	<dependencies>
 		<dependency>
@@ -19,12 +18,12 @@
 			<scope>test</scope>
 		</dependency>
 		<dependency>
-			<groupId>com.sohu.tv</groupId>
+			<groupId>com.carlosfu</groupId>
 			<artifactId>Test_Common</artifactId>
 			<version>${test_common.version}</version>
 		</dependency>
 		<dependency>
-			<groupId>com.sohu.tv</groupId>
+			<groupId>com.carlosfu</groupId>
 			<artifactId>Test_Java</artifactId>
 			<version>${test_java.version}</version>
 		</dependency>
