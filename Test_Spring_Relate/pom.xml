@@ -10,11 +10,12 @@
   <artifactId>Test_Spring_Relate</artifactId>
   <packaging>war</packaging>
   <name>Test_Spring_Relate Maven Webapp</name>
+  <url>http://maven.apache.org</url>
   <dependencies>
     <dependency>
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>
-      <scope>test</scope>
+      <version>3.8.1</version>
     </dependency>
   </dependencies>
   <build>
