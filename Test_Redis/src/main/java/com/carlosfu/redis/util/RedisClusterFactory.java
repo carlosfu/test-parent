@@ -1,7 +1,6 @@
 package com.carlosfu.redis.util;
 
 
-import org.apache.commons.pool2.impl.GenericObjectPoolConfig;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import redis.clients.jedis.HostAndPort;
@@ -13,7 +12,10 @@ import java.util.Properties;
 import java.util.Set;
 
 /**
- * Created by yijunzhang on 14-4-21.
+ * redis集群工厂类（来自投放项目）
+ * @author leifu
+ * @Date 2014年10月22日
+ * @Time 下午5:28:26
  */
 public class RedisClusterFactory {
     private static final Logger LOGGER = LoggerFactory.getLogger(RedisClusterFactory.class);

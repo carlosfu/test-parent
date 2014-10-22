@@ -1,10 +1,11 @@
 package com.carlosfu.hbase.enums;
 
-/**
- * VedioRc
- * User: yijunzhang
- * Date: 13-11-26
- * Time: 下午4:26
+
+/***
+ * Hbase视频相关的表
+ * @author leifu
+ * @Date 2014年10月22日
+ * @Time 下午5:32:34
  */
 public enum VideoRcHbaseEnum {
     TABLE("rc_video_new"),

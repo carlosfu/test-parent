@@ -1,4 +1,4 @@
-package com.sohu.tv.mobil.entity;
+package com.carlosfu.entity;
 
 import java.io.Serializable;
 import java.util.List;

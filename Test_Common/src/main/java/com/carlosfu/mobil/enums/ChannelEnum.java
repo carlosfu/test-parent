@@ -2,11 +2,12 @@ package com.carlosfu.mobil.enums;
 
 import java.util.*;
 
+
 /**
- * 频道类型列表
- * User: yijunzhang
- * Date: 13-11-25
- * Time: 下午4:48
+ * 频道(来自投放)
+ * @author leifu
+ * @Date 2014年10月22日
+ * @Time 下午5:33:16
  */
 public enum ChannelEnum {
 

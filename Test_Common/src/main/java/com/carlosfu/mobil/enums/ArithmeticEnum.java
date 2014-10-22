@@ -5,10 +5,10 @@ import java.util.Collections;
 import java.util.List;
 
 /**
- * 算法枚举
- * User: yijunzhang
- * Date: 13-11-25
- * Time: 下午5:03
+ * 算法枚举(来自投放)
+ * @author leifu
+ * @Date 2014年10月22日
+ * @Time 下午5:32:56
  */
 public enum ArithmeticEnum {
     /**

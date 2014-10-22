@@ -7,11 +7,11 @@ import org.apache.hadoop.hbase.client.HTableInterface;
 import org.apache.hadoop.hbase.client.Result;
 import org.apache.hadoop.hbase.util.Bytes;
 
+import com.carlosfu.entity.ChannelResult;
 import com.carlosfu.hbase.enums.UserRcHbaseEnum;
 import com.carlosfu.hbase.util.HbaseUtil;
 import com.carlosfu.mobil.enums.ArithmeticEnum;
 import com.carlosfu.mobil.enums.ChannelEnum;
-import com.sohu.tv.mobil.entity.ChannelResult;
 
 import java.util.*;
 

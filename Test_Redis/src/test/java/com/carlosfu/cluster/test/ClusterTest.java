@@ -25,7 +25,7 @@ public class ClusterTest {
     @Test
     public void testSetAndGetAndDel() {
         String key = BASE_PREFIX_KEY + "hello";
-        String response = redisCluster.set(key, "sohu world");
+        String response = redisCluster.set(key, "hehe world");
         System.out.println("response: " + response);
         // 2.获取
         String value = redisCluster.get(key);

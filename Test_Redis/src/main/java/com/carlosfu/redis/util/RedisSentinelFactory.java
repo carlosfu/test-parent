@@ -9,7 +9,10 @@ import java.util.Properties;
 import java.util.Set;
 
 /**
- * Created by yijunzhang on 14-8-20.
+ * redis哨兵工厂（来自投放项目）
+ * @author leifu
+ * @Date 2014年10月22日
+ * @Time 下午5:28:55
  */
 public class RedisSentinelFactory {
     private static final Logger logger = LoggerFactory.getLogger(RedisSentinelFactory.class);

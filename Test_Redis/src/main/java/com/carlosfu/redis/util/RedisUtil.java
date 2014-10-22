@@ -8,7 +8,10 @@ import java.io.InputStream;
 import java.util.Properties;
 
 /**
- * Created by yijunzhang on 14-8-20.
+ * redis工具类（来自投放项目）
+ * @author leifu
+ * @Date 2014年10月22日
+ * @Time 下午5:29:19
  */
 public class RedisUtil {
     private static final Logger LOGGER = LoggerFactory.getLogger(RedisUtil.class);

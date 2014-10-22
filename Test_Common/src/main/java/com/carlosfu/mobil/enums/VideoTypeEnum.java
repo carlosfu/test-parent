@@ -1,10 +1,10 @@
 package com.carlosfu.mobil.enums;
 
 /**
- * 视频/专辑类型枚举
- * User: yijunzhang
- * Date: 13-11-26
- * Time: 下午4:29
+ * 视频/专辑类型枚举(来自投放)
+ * @author leifu
+ * @Date 2014年10月22日
+ * @Time 下午5:33:38
  */
 public enum VideoTypeEnum {
     //专辑
