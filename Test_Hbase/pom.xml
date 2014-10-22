@@ -21,7 +21,7 @@
 			<artifactId>hbase</artifactId>
 		</dependency>
 		<dependency>
-			<groupId>com.sohu.tv</groupId>
+			<groupId>com.carlosfu</groupId>
 			<artifactId>Test_Common</artifactId>
 			<version>${test_common.version}</version>
 		</dependency>
