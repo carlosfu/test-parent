@@ -26,7 +26,6 @@
     	<module>Test_Jar_Duplicate_DifVersion</module>
     	<module>Test_VisualVm</module>
     	<module>Test_BigMemory</module>
-    	  <module>Test_Spring_Relate</module>
   </modules>
 	<properties>
 		<test_common.version>1.0-SNAPSHOT</test_common.version>
