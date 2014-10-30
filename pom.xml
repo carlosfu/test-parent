@@ -26,7 +26,8 @@
     	<module>Test_VisualVm</module>
     	<module>Test_BigMemory</module>
     	<module>Test_Spring_Relate</module>
-	</modules>
+    	<module>Test_Redis_Officials</module>
+  </modules>
 	<properties>
 		<test_common.version>1.0-SNAPSHOT</test_common.version>
 		<test_java.version>1.0-SNAPSHOT</test_java.version>
