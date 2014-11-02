@@ -12,7 +12,7 @@ public class HelloRedis {
 	public static void main(String[] args) {
 		Jedis jedis = new Jedis("10.16.15.86");
 		String key = "hello";
-		jedis.set("hello", "redisWorld");
+		jedis.set(key, "redisWorld1");
 		String value = jedis.get(key);
 		System.out.println("value is: " + value);
 		jedis.close();
