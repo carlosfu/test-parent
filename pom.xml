@@ -28,6 +28,7 @@
     	<module>Test_Spring_Relate</module>
     	<module>Test_Redis_Officials</module>
         <module>Test_Design_Pattern</module>
+    <module>Test_FrontEnd_Effect</module>
   </modules>
 	<properties>
 		<test_common.version>1.0-SNAPSHOT</test_common.version>

@@ -1,0 +1,67 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+	<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<link href="../../resource/googleCodePrettify/prettify.css" rel="stylesheet" type="text/css" />
+	<script type="text/javascript" src="../../resource/googleCodePrettify/prettify.js"></script>
+	<title>google code prettify</title>
+	</head>
+	<body onload="prettyPrint();">
+		<pre class="prettyprint">
+package com.carlosfu.jedis.first;
+
+import redis.clients.jedis.Jedis;
+
+public class HelloRedis {
+    public static void main(String[] args) {
+        Jedis jedis = new Jedis("10.16.15.86");
+        String key = "hello";
+        jedis.set(key, "redisWorld1");
+        String value = jedis.get(key);
+        System.out.println("value is: " + value);
+        jedis.close();
+    }
+}
+		</pre>
+		
+		<pre class="prettyprint">
+#!/bin/sh
+
+##############################################
+# @desc:
+#   deploy cachecloud
+# @author: lingguo
+# @time: 2014-09-01
+#############################################
+
+set -o nounset
+set -o errexit
+
+readonly jettyDir="/usr/local/jetty-cache"
+readonly workDir="/opt/cachecloud"
+readonly warName="cachecloud-web-1.0-SNAPSHOT.war"
+readonly remoteURL="http://index.tv.sohuno.com/software/cachecloud/cachecloud-web-1.0-SNAPSHOT.war"
+
+main() {
+    # stop jetty
+    ${jettyDir}/bin/jetty.sh stop
+    sleep 1
+    
+    # backup and update
+    local today=$(date +%Y%m%d)
+    if [[ -f "${workDir}/${warName}" ]]; then
+	mv ${workDir}/${warName} ${workDir}/bak/${warName}.${today}
+    fi
+    wget -N "${remoteURL}" -P ${workDir}
+    rm -rf ${jettyDir}/webapps/ROOT
+    unzip ${workDir}/${warName} -d ${jettyDir}/webapps/ROOT
+
+    # start jetty
+    ${jettyDir}/bin/jetty.sh start
+}
+
+main
+		</pre>
+	
+	</body>
+</html>
