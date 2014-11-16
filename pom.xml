@@ -28,7 +28,8 @@
     	<module>Test_Spring_Relate</module>
     	<module>Test_Redis_Officials</module>
         <module>Test_Design_Pattern</module>
-    <module>Test_FrontEnd_Effect</module>
+        <module>Test_FrontEnd_Effect</module>
+        <module>Test_Hystrix</module>
   </modules>
 	<properties>
 		<test_common.version>1.0-SNAPSHOT</test_common.version>
@@ -82,6 +83,9 @@
 		<commons-logging.version>1.1.1</commons-logging.version>
 		<servlet.api.version>2.5</servlet.api.version>
 		<log4j.version>1.2.17</log4j.version>
+		<hystrix.version>1.3.16</hystrix.version>
+        <hystrix-metrics-event-stream.version>1.1.2</hystrix-metrics-event-stream.version>
+        <jetty.version>9.1.5.v20140505</jetty.version>
 	</properties>
 	<dependencyManagement>
 		<dependencies>
@@ -678,6 +682,34 @@
 				<artifactId>log4j</artifactId>
 				<version>${log4j.version}</version>
 			</dependency>
+			
+			<!-- hystrix开始 -->
+			<dependency>
+                <groupId>com.netflix.hystrix</groupId>
+                <artifactId>hystrix-core</artifactId>
+                <version>${hystrix.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.netflix.hystrix</groupId>
+                <artifactId>hystrix-metrics-event-stream</artifactId>
+                <version>${hystrix-metrics-event-stream.version}</version>
+            </dependency>
+            <!-- hystrix结束 -->
+
+            <!-- Jetty -->
+            <dependency>
+                <groupId>org.eclipse.jetty.aggregate</groupId>
+                <artifactId>jetty-all</artifactId>
+                <version>${jetty.version}</version>
+            </dependency>
+
+            <!-- Jetty Webapp -->
+            <dependency>
+                <groupId>org.eclipse.jetty</groupId>
+                <artifactId>jetty-webapp</artifactId>
+                <version>${jetty.version}</version>
+            </dependency>
 
 		</dependencies>
 	</dependencyManagement>
@@ -771,6 +803,20 @@
 			<id>sohuNexus</id>
 			<url>http://dev.hd.sohu.com.cn/nexus/content/groups/public</url>
 		</repository>
+		
+		<!-- hystrix会用到 -->
+		<repository>
+            <id>nexus</id>
+            <name>local private nexus</name>
+            <url>http://maven.oschina.net/content/groups/public/</url>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </repository>
+		
 	</repositories>
 
 </project>
