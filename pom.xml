@@ -30,7 +30,8 @@
         <module>Test_Design_Pattern</module>
         <module>Test_FrontEnd_Effect</module>
         <module>Test_Hystrix</module>
-  </modules>
+        <module>Test_Quartz</module>
+	</modules>
 	<properties>
 		<test_common.version>1.0-SNAPSHOT</test_common.version>
 		<test_java.version>1.0-SNAPSHOT</test_java.version>
