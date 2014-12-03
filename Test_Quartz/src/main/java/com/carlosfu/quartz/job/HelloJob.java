@@ -1,4 +1,4 @@
-package com.carlosfu.quartz.first;
+package com.carlosfu.quartz.job;
 
 import java.util.Date;
 import org.quartz.Job;

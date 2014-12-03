@@ -14,11 +14,19 @@ import org.quartz.impl.StdSchedulerFactory;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-public class SimpleExample {
-    private Logger logger = LoggerFactory.getLogger(SimpleExample.class);
+import com.carlosfu.quartz.job.HelloJob;
+
+/**
+ * 定义一个简单scheduler、trigger、job开始执行
+ * @author leifu
+ * @Date 2014年12月3日
+ * @Time 上午9:33:20
+ */
+public class QuartzWithJob {
+    private Logger logger = LoggerFactory.getLogger(QuartzWithJob.class);
 
     public static void main(String[] args) throws Exception {
-        SimpleExample example = new SimpleExample();
+        QuartzWithJob example = new QuartzWithJob();
         example.run();
     }
 
@@ -30,22 +38,23 @@ public class SimpleExample {
         logger.info("----------------- Initialization Complete -----------");
 
         // 2.定义job and trigger
-        // 去掉秒，分钟
+        // 去掉秒，当前实际的下一分钟
         Date runTime = DateBuilder.evenMinuteDate(new Date());
         logger.info("----------------- Scheduling Job:{}  -------------------", runTime);
         JobDetail job = JobBuilder.newJob(HelloJob.class).withIdentity("job1", "group1").build();
         Trigger trigger = TriggerBuilder.newTrigger().withIdentity("trigger1", "group1").startAt(runTime).build();
 
-        // 3.启动trigger和job
+        // 3.部署、启动trigger和job
         sched.scheduleJob(job, trigger);
         logger.info(job.getKey() + " will run at: " + runTime);
+        // 4.启动调度器
         sched.start();
         logger.info("----------------- Started Scheduler -----------------");
         logger.info("----------------- Waiting 65 seconds... -------------");
 
         // 4.休息一分钟在关闭调度器
         try {
-            TimeUnit.MINUTES.sleep(1);
+            TimeUnit.SECONDS.sleep(65);
         } catch (Exception e) {
             logger.error(e.getMessage(), e);
         }

@@ -2,6 +2,7 @@ package com.carlosfu.quartz.first;
 
 import org.quartz.Scheduler;
 import org.quartz.SchedulerException;
+import org.quartz.SchedulerFactory;
 import org.quartz.impl.StdSchedulerFactory;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -13,13 +14,14 @@ import org.slf4j.LoggerFactory;
  * @Date 2014年11月27日
  * @Time 上午10:12:20
  */
-public class FirstQuartzTest {
-    private final static Logger logger = LoggerFactory.getLogger(FirstQuartzTest.class);
+public class FirstQuartz {
+    private final static Logger logger = LoggerFactory.getLogger(FirstQuartz.class);
 
     public static void main(String[] args) {
         try {
             // 声明默认的调度器
-            Scheduler scheduler = StdSchedulerFactory.getDefaultScheduler();
+            SchedulerFactory sf = new StdSchedulerFactory();
+            Scheduler scheduler = sf.getScheduler(); 
             // 开启调度器
             scheduler.start();
             // 关闭调度器
