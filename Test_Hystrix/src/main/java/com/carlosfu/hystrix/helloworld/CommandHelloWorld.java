@@ -26,7 +26,13 @@ public class CommandHelloWorld extends HystrixCommand<String> {
 
     @Override
     protected String run() {
-    	//HttpRequestUtil.get("http://cc.tv.sohuno.com", "utf-8");
+    	// 使用线程隔离时，调用超时时间，默认:1秒  
+    	// HystrixProperty<Integer> executionIsolationThreadTimeoutInMilliseconds;
+    	try {
+			Thread.sleep(500);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
         return "Hello " + name + "!";
     }
 
@@ -53,6 +59,7 @@ public class CommandHelloWorld extends HystrixCommand<String> {
             assertEquals("Hello World!", fWorld.get());
             assertEquals("Hello Bob!", fBob.get());
         }
+        
 
         @Test
         public void testObservable() throws Exception {
