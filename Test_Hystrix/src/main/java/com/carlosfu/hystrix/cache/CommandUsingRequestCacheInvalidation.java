@@ -1,4 +1,3 @@
-package com.carlosfu.hystrix.cache;
 /**
  * Copyright 2012 Netflix, Inc.
  * 
@@ -14,7 +13,7 @@ package com.carlosfu.hystrix.cache;
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
+package com.carlosfu.hystrix.cache;
 
 import static org.junit.Assert.*;
 

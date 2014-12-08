@@ -1,4 +1,4 @@
-package com.carlosfu.hystrix.offical.example.basic;
+package com.carlosfu.hystrix.fail;
 
 import static org.junit.Assert.*;
 

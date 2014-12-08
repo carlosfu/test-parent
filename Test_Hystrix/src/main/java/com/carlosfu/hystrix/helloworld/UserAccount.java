@@ -1,4 +1,4 @@
-package com.carlosfu.hystrix.offical.example.basic;
+package com.carlosfu.hystrix.helloworld;
 
 public class UserAccount {
 	public final int customerId;

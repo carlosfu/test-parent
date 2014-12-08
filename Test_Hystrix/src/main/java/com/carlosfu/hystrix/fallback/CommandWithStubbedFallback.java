@@ -4,7 +4,7 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
-import com.carlosfu.hystrix.offical.example.basic.UserAccount;
+import com.carlosfu.hystrix.helloworld.UserAccount;
 import com.netflix.hystrix.HystrixCommand;
 import com.netflix.hystrix.HystrixCommandGroupKey;
 

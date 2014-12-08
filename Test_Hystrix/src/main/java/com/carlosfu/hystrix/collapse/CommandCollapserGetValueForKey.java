@@ -1,19 +1,4 @@
-/**
- * Copyright 2012 Netflix, Inc.
- * 
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- * 
- * http://www.apache.org/licenses/LICENSE-2.0
- * 
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-package com.carlosfu.hystrix.offical.example.basic;
+package com.carlosfu.hystrix.collapse;
 
 import static org.junit.Assert.*;
 
@@ -32,10 +17,6 @@ import com.netflix.hystrix.HystrixEventType;
 import com.netflix.hystrix.HystrixRequestLog;
 import com.netflix.hystrix.strategy.concurrency.HystrixRequestContext;
 
-/**
- * Sample {@link HystrixCollapser} that automatically batches multiple requests to execute()/queue()
- * into a single {@link HystrixCommand} execution for all requests within the defined batch (time or size).
- */
 public class CommandCollapserGetValueForKey extends HystrixCollapser<List<String>, String, Integer> {
 
     private final Integer key;
