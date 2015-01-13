@@ -36,14 +36,12 @@ public class QuartzWithJob {
         SchedulerFactory sf = new StdSchedulerFactory();
         Scheduler sched = sf.getScheduler();
         logger.info("----------------- Initialization Complete -----------");
-
         // 2.定义job and trigger
         // 去掉秒，当前实际的下一分钟
         Date runTime = DateBuilder.evenMinuteDate(new Date());
         logger.info("----------------- Scheduling Job:{}  -------------------", runTime);
         JobDetail job = JobBuilder.newJob(HelloJob.class).withIdentity("job1", "group1").build();
         Trigger trigger = TriggerBuilder.newTrigger().withIdentity("trigger1", "group1").startAt(runTime).build();
-
         // 3.部署、启动trigger和job
         sched.scheduleJob(job, trigger);
         logger.info(job.getKey() + " will run at: " + runTime);
@@ -51,15 +49,9 @@ public class QuartzWithJob {
         sched.start();
         logger.info("----------------- Started Scheduler -----------------");
         logger.info("----------------- Waiting 65 seconds... -------------");
-
-        // 4.休息一分钟在关闭调度器
-        try {
-            TimeUnit.SECONDS.sleep(65);
-        } catch (Exception e) {
-            logger.error(e.getMessage(), e);
-        }
-
-        // 5.关闭
+        // 5.休息一分钟在关闭调度器
+        TimeUnit.SECONDS.sleep(65);
+        // 6.关闭
         logger.info("----------------- Shutting Down ---------------------");
         sched.shutdown(true);
         logger.info("----------------- Shutdown Complete -----------------");

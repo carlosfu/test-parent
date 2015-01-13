@@ -46,16 +46,17 @@ public class Chapter06 {
     public void run()
         throws InterruptedException, IOException
     {
-        Jedis conn = new Jedis("localhost");
+        Jedis conn = new Jedis(RedisInActionConstants.REDIS_SINGLE_HOST);
         conn.select(15);
 
-        testAddUpdateContact(conn);
-        testAddressBookAutocomplete(conn);
+//        testAddUpdateContact(conn);
+//        testAddressBookAutocomplete(conn);
+        //分布式锁
         testDistributedLocking(conn);
-        testCountingSemaphore(conn);
-        testDelayedTasks(conn);
-        testMultiRecipientMessaging(conn);
-        testFileDistribution(conn);
+//        testCountingSemaphore(conn);
+//        testDelayedTasks(conn);
+//        testMultiRecipientMessaging(conn);
+//        testFileDistribution(conn);
     }
 
     public void testAddUpdateContact(Jedis conn) {
