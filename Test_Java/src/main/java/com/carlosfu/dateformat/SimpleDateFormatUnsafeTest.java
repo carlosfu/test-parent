@@ -45,7 +45,7 @@ public class SimpleDateFormatUnsafeTest {
     private static AtomicInteger counter = new AtomicInteger();
 
     public static void main(String[] args) throws InterruptedException {
-        // 存储2000-01-01到4999-01-01一千个Date数据
+        // 存储2000-01-01到4999-01-01三千个Date数据
         initDateData(2000, 5000);
         System.out.println("total dates size is " + dateQueue.size());
 
