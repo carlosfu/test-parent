@@ -13,7 +13,6 @@ public class WrongCalculator {
         try {
             return a / b;
         } catch (Exception e) {
-            
             LOGGER.error("div error: ", e);
         }
         return result;
@@ -33,8 +32,18 @@ public class WrongCalculator {
         try {
             return a / b;
         } catch (Exception e) {
-//            LOGGER.error("div3 error: ", e);
             throw new Throwable(e);
+        }
+    }
+    
+    public int div4(int a, int b) {
+        try {
+            return a / b;
+        } catch (Exception e) {
+            LOGGER.error("div error: ", e);
+            return 333;
+        } finally{
+            System.out.println("==============");
         }
     }
     
@@ -51,17 +60,24 @@ public class WrongCalculator {
         }
         
         @Test
-        public void testCal3(){
+        public void testCal2(){
             logger.info("testCal2 9/0 is "+ cal.div2(9, 0));
         }
         
         @Test
-        public void testCal4(){
+        public void testCal3(){
             try {
                 logger.info("testCal3 9/0 is "+ cal.div3(9, 0));
             } catch (Throwable e) {
                 logger.error("testCal3 error: ", e);
             }
+        }
+        
+        @Test
+        public void testCal4(){
+            //无论是异常还是非异常，都执行finally
+            logger.info("testCal4 9/0 is "+ cal.div4(9, 0));
+            logger.info("testCal4 9/0 is "+ cal.div4(9, 3));
         }
     }
 }
