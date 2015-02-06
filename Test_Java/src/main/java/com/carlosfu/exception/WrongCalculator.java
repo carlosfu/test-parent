@@ -47,9 +47,17 @@ public class WrongCalculator {
         }
     }
     
+    public int div5(int a, int b) {
+        try {
+            return a / b;
+        } finally{
+            System.out.println("==============");
+        }
+    }
+    
     
     public static class CalTest{
-        private Logger logger = LoggerFactory.getLogger(CalTest.class);
+        private Logger logger = LoggerFactory.getLogger(CalTest.class); //无论是异常还是非异常，都执行finally
         
         WrongCalculator cal = new WrongCalculator();
         
@@ -77,7 +85,14 @@ public class WrongCalculator {
         public void testCal4(){
             //无论是异常还是非异常，都执行finally
             logger.info("testCal4 9/0 is "+ cal.div4(9, 0));
-            logger.info("testCal4 9/0 is "+ cal.div4(9, 3));
+            logger.info("testCal4 9/3 is "+ cal.div4(9, 3));
+        }
+        
+        @Test
+        public void testCal5(){
+            //无论是异常还是非异常，都执行finally
+            logger.info("testCal4 9/3 is "+ cal.div5(9, 3));
+            logger.info("testCal4 9/0 is "+ cal.div5(9, 0));
         }
     }
 }
