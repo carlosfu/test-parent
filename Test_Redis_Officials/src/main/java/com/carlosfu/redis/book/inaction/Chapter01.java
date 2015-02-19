@@ -23,7 +23,7 @@ public class Chapter01 {
 	/**
 	 * 文章默认分数
 	 */
-	private static final int VOTE_SCORE = 432;
+	private static final int VOTE_SCORE = 1;
 	
 	/**
 	 * 文章分页数
@@ -38,7 +38,7 @@ public class Chapter01 {
 	/**
 	 * 所有的投票用集合类表示(+文章号，代表每篇文章的投票人集合)
 	 */
-	private static final String vote_user_base_set = "voted:";
+	private static final String vote_user_base_set = "article:votes";
 	
 	/**
 	 * 文章map的基准key
@@ -63,8 +63,7 @@ public class Chapter01 {
 	private Jedis jedis;
 
 	public Chapter01() {
-		jedis = new Jedis("10.16.15.86");
-		jedis.select(15);
+		jedis = new Jedis(RedisInActionConstants.REDIS_SINGLE_HOST);
 	}
 
 	public static final void main(String[] args) {
@@ -73,15 +72,20 @@ public class Chapter01 {
 
 	public void run() {
 		// 1.1 发表一篇文章
-		String articleId = postArticle("username", "A title",
-				"http://www.google.com");
+//		String articleId = postArticle("username", "A title",
+//				"http://www.google.com");
+		// 一篇文章的key
+		String acticleKey = article_hmap_base_key + "1";
+		
 		// 1.2 展示一篇文章
-		showArticle(articleId);
+		showArticle(acticleKey);
 
+		
 		// 2.1 其他人为文章投票
-		articleVote("other_user", article_hmap_base_key + articleId);
+		articleVote("hehe", acticleKey);
+		/*
 		// 2.2 获取新的文章投票数
-		String votes = jedis.hget(article_hmap_base_key + articleId, "votes");
+		String votes = jedis.hget(acticleKey, "votes");
 		System.out.println("We voted for the article, it now has votes: "
 				+ votes);
 		assert Integer.parseInt(votes) > 1;
@@ -101,16 +105,17 @@ public class Chapter01 {
 		articles = getGroupArticles(group, 1, article_score_zset_base_key);
 		printArticles(articles);
 		assert articles.size() >= 1;
+		*/
 	}
 
 	/**
 	 * 展示一篇文章
 	 * @param articleId
 	 */
-	private void showArticle(String articleId) {
-		System.out.println("We posted a new article with id: " + articleId);
+	private void showArticle(String articleKey) {
+		System.out.println("We posted a new article with id: " + articleKey);
 		System.out.println("Its HASH looks like:");
-		Map<String, String> articleData = jedis.hgetAll(article_hmap_base_key + articleId);
+		Map<String, String> articleData = jedis.hgetAll(articleKey);
 		for (Map.Entry<String, String> entry : articleData.entrySet()) {
 			System.out.println("  " + entry.getKey() + ": " + entry.getValue());
 		}
@@ -152,7 +157,7 @@ public class Chapter01 {
 		jedis.hmset(article, articleData);
 
 		// 两个排序, 按照分数和日期给文章排序
-		jedis.zadd(article_score_zset_base_key, now + VOTE_SCORE, article);
+		jedis.zadd(article_score_zset_base_key, VOTE_SCORE, article);
 		jedis.zadd(article_time_zset_base_key, now, article);
 
 		return articleId;
