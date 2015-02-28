@@ -9,6 +9,12 @@ import org.elasticsearch.search.facet.terms.TermsFacet;
 import static org.elasticsearch.index.query.QueryBuilders.*;
 import static org.elasticsearch.search.facet.FacetBuilders.*;
 
+/**
+ * 来自elasticsearch-cookbook
+ * @author leifu
+ * @Date 2015年2月28日
+ * @Time 下午3:07:08
+ */
 public class FacetExample {
     public static void main(String[] args) {
         String index = "mytest";

@@ -9,7 +9,8 @@ import org.elasticsearch.index.query.QueryBuilder;
 import org.elasticsearch.index.query.RangeQueryBuilder;
 import org.elasticsearch.index.query.TermFilterBuilder;
 
-import com.sohu.tv.index.data.engine.es.ElasticSearchClientFactory;
+import com.sohu.tv.index.data.engine.es.ElasticSearchCenter;
+import com.sohu.tv.index.data.engine.es.impl.ElasticSearchCenterImpl;
 
 import java.io.IOException;
 
@@ -17,15 +18,15 @@ import static org.elasticsearch.index.query.QueryBuilders.*;
 import static org.elasticsearch.index.query.FilterBuilders.*;
 
 public class QueryCreation {
-    private final static Client client = ElasticSearchClientFactory.createTransportClient();;
+    private static ElasticSearchCenter elasticSearchCenter = new ElasticSearchCenterImpl();
 
     public static void main( String[] args )
     {
         String index="mytest";
         String type="mytype";
-        IndicesOperations io=new IndicesOperations();
-        if(io.checkIndexExists(index))
-            io.deleteIndex(index);
+        Client client = elasticSearchCenter.getClient();
+        if(elasticSearchCenter.checkIndexExists(index))
+            elasticSearchCenter.deleteIndex(index);
 
         try {
             client.admin().indices().prepareCreate(index)
@@ -58,6 +59,6 @@ public class QueryCreation {
         SearchResponse response=client.prepareSearch(index).setTypes(type).setQuery(query).execute().actionGet();
         System.out.println("Matched records of elements: " + response.getHits().getTotalHits());
 
-        io.deleteIndex(index);
+        elasticSearchCenter.deleteIndex(index);
     }
 }

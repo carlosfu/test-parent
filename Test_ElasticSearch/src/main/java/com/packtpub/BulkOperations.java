@@ -4,22 +4,30 @@ import org.elasticsearch.action.bulk.BulkRequestBuilder;
 import org.elasticsearch.client.Client;
 import org.elasticsearch.common.xcontent.XContentFactory;
 
-import com.sohu.tv.index.data.engine.es.ElasticSearchClientFactory;
+import com.sohu.tv.index.data.engine.es.ElasticSearchCenter;
+import com.sohu.tv.index.data.engine.es.impl.ElasticSearchCenterImpl;
 
 import java.io.IOException;
 
+/**
+ * 来自elasticsearch-cookbook
+ * @author leifu
+ * @Date 2015年2月28日
+ * @Time 下午3:07:08
+ */
 public class BulkOperations {
 
-    private final static Client client = ElasticSearchClientFactory.createTransportClient();;
-
+    private static ElasticSearchCenter elasticSearchCenter = new ElasticSearchCenterImpl();
 
     public static void main( String[] args )
     {
+        
+        Client client = elasticSearchCenter.getClient();
+        
         String index="mytest";
         String type="mytype";
-        IndicesOperations io=new IndicesOperations();
-        if(io.checkIndexExists(index))
-            io.deleteIndex(index);
+        if(elasticSearchCenter.checkIndexExists(index))
+            elasticSearchCenter.deleteIndex(index);
 
         try {
             client.admin().indices().prepareCreate(index)
@@ -56,6 +64,6 @@ public class BulkOperations {
         System.out.println("Number of actions  for delete: " + bulker.numberOfActions());
         bulker.execute().actionGet();
 
-        io.deleteIndex(index);
+        elasticSearchCenter.deleteIndex(index);
     }
 }
