@@ -7,19 +7,19 @@ import org.elasticsearch.action.update.UpdateResponse;
 import org.elasticsearch.client.Client;
 import org.elasticsearch.common.xcontent.XContentFactory;
 
+import com.sohu.tv.index.data.engine.es.ElasticSearchClientFactory;
+
 import java.io.IOException;
 
 public class DocumentOperations {
 
-
-
-    public static void main( String[] args )
+    public static void main(String[] args)
     {
-        String index="mytest";
-        String type="mytype";
-        Client client =NativeClient.createTransportClient();
-        IndicesOperations io=new IndicesOperations(client);
-        if(io.checkIndexExists(index))
+        String index = "mytest";
+        String type = "mytype";
+        Client client = ElasticSearchClientFactory.createTransportClient();
+        IndicesOperations io = new IndicesOperations();
+        if (io.checkIndexExists(index))
             io.deleteIndex(index);
 
         try {
@@ -36,13 +36,14 @@ public class DocumentOperations {
             System.out.println("Unable to create mapping");
         }
 
-        IndexResponse ir=client.prepareIndex(index, type, "2").setSource("text", "value").execute().actionGet();
-        System.out.println("Version: "+ir.getVersion());
-        GetResponse gr=client.prepareGet(index, type, "2").execute().actionGet();
-        System.out.println("Version: "+gr.getVersion());
+        IndexResponse ir = client.prepareIndex(index, type, "2").setSource("text", "value").execute().actionGet();
+        System.out.println("Version: " + ir.getVersion());
+        GetResponse gr = client.prepareGet(index, type, "2").execute().actionGet();
+        System.out.println("Version: " + gr.getVersion());
 
-        UpdateResponse ur = client.prepareUpdate(index, type, "2").setScript("ctx._source.text = 'v2'").execute().actionGet();
-        System.out.println("Version: "+ur.getVersion());
+        UpdateResponse ur = client.prepareUpdate(index, type, "2").setScript("ctx._source.text = 'v2'").execute()
+                .actionGet();
+        System.out.println("Version: " + ur.getVersion());
 
         DeleteResponse dr = client.prepareDelete(index, type, "2").execute().actionGet();
         io.deleteIndex(index);

@@ -9,18 +9,21 @@ import org.elasticsearch.index.query.QueryBuilder;
 import org.elasticsearch.index.query.RangeQueryBuilder;
 import org.elasticsearch.index.query.TermFilterBuilder;
 
+import com.sohu.tv.index.data.engine.es.ElasticSearchClientFactory;
+
 import java.io.IOException;
+
 import static org.elasticsearch.index.query.QueryBuilders.*;
 import static org.elasticsearch.index.query.FilterBuilders.*;
 
 public class QueryCreation {
+    private final static Client client = ElasticSearchClientFactory.createTransportClient();;
 
     public static void main( String[] args )
     {
         String index="mytest";
         String type="mytype";
-        Client client =NativeClient.createTransportClient();
-        IndicesOperations io=new IndicesOperations(client);
+        IndicesOperations io=new IndicesOperations();
         if(io.checkIndexExists(index))
             io.deleteIndex(index);
 

@@ -4,18 +4,20 @@ import org.elasticsearch.action.bulk.BulkRequestBuilder;
 import org.elasticsearch.client.Client;
 import org.elasticsearch.common.xcontent.XContentFactory;
 
+import com.sohu.tv.index.data.engine.es.ElasticSearchClientFactory;
+
 import java.io.IOException;
 
 public class BulkOperations {
 
+    private final static Client client = ElasticSearchClientFactory.createTransportClient();;
 
 
     public static void main( String[] args )
     {
         String index="mytest";
         String type="mytype";
-        Client client =NativeClient.createTransportClient();
-        IndicesOperations io=new IndicesOperations(client);
+        IndicesOperations io=new IndicesOperations();
         if(io.checkIndexExists(index))
             io.deleteIndex(index);
 

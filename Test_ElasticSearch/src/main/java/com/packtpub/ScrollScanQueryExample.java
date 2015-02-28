@@ -46,7 +46,5 @@ public class ScrollScanQueryExample {
                 break;
             }
         }
-
-        qh.dropIndex(index);
     }
 }

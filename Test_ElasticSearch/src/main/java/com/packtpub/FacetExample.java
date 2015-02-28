@@ -45,6 +45,5 @@ public class FacetExample {
             System.out.println("Total: " + facet2.getTotal());
 
         }
-        qh.dropIndex(index);
     }
 }

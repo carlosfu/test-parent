@@ -5,6 +5,8 @@ import org.elasticsearch.client.Client;
 import org.elasticsearch.common.Priority;
 import org.elasticsearch.common.xcontent.XContentFactory;
 
+import com.sohu.tv.index.data.engine.es.ElasticSearchClientFactory;
+
 import java.io.IOException;
 import java.util.Random;
 
@@ -12,12 +14,7 @@ import java.util.Random;
  * Created by alberto on 9/21/13.
  */
 public class QueryHelper {
-    private final Client client;
-    private final IndicesOperations io;
-    public QueryHelper() {
-        this.client = NativeClient.createTransportClient();
-        io = new IndicesOperations(client);
-    }
+    private final static Client client = ElasticSearchClientFactory.createTransportClient();;
 
     private String[] tags=new String[]{"nice", "cool", "bad", "amazing"};
 
@@ -26,9 +23,6 @@ public class QueryHelper {
     }
 
     public void populateData(String index, String type) {
-        if (io.checkIndexExists(index))
-            io.deleteIndex(index);
-
         try {
             client.admin().indices().prepareCreate(index)
                     .addMapping(type, XContentFactory.jsonBuilder()
@@ -59,10 +53,6 @@ public class QueryHelper {
 
         client.admin().indices().prepareRefresh(index).execute().actionGet();
 
-    }
-
-    public void dropIndex(String index){
-        io.deleteIndex(index);
     }
 
     public Client getClient() {

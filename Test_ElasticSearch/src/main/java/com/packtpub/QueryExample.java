@@ -31,6 +31,5 @@ public class QueryExample {
                 System.out.println("hit: "+hit.getIndex()+":"+hit.getType()+":"+hit.getId());
             }
         }
-        qh.dropIndex(index);
     }
 }
