@@ -32,8 +32,8 @@ public class EsDocTest {
 
     private ElasticSearchCenter elasticSearchCenter;
 
-    private final String index = "video_56_index";
-    private final String type = "video_56_type";
+    private final String index = "video-56-index-v6";
+    private final String type = "video-56-type";
 
     @Before
     public void setUp() throws Exception {
@@ -43,7 +43,7 @@ public class EsDocTest {
     /**
      * 测试添加和更新（添加和更新是同一个操作，返回IndexResponse略有不同）
      */
-    @Test
+//    @Test
     public void testAddOrUpdateDoc() {
         // 文档号
         String id = "19870209";
@@ -66,7 +66,7 @@ public class EsDocTest {
      */
     @Test
     public void testGetDoc(){
-        String id = "19870209";
+        String id = "135863090";
         Result<GetResponse> result = elasticSearchCenter.getSource(index, type, id);
         if (result.isSuccess()) {
             GetResponse response = result.getValue();

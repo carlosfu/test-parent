@@ -38,8 +38,10 @@ public class ElasticSearchClientFactory {
                 String sniff = resourceBundle.getString("es.client.transport.sniff");
 
                 Settings settings = ImmutableSettings.settingsBuilder()
+                        //sniff默认是false,但是一般设置成true,有利于集群伸缩的嗅探
                         .put("client.transport.sniff", sniff)
                         .put("cluster.name", clusterName)
+                        //客户端超时
                         .put("client.transport.ping_timeout", timeout)
                         .build();
                 TransportClient innerClient = new TransportClient(settings);
