@@ -33,6 +33,7 @@
         <module>Test_Quartz</module>
     	<module>Test_CacheCloud</module>
     	<module>Test_ElasticSearch</module>
+    <module>Test_ThreadPool_Monitor</module>
   </modules>
 	<properties>
 		<test_common.version>1.0-SNAPSHOT</test_common.version>
@@ -687,7 +688,7 @@
 				<version>${log4j.version}</version>
 			</dependency>
 			
-			<!-- hystrix�?�� -->
+			<!-- hystrix�?�� -->
 			<dependency>
                 <groupId>com.netflix.hystrix</groupId>
                 <artifactId>hystrix-core</artifactId>
@@ -814,7 +815,7 @@
 			<url>http://dev.hd.sohu.com.cn/nexus/content/groups/public</url>
 		</repository>
 		
-		<!-- hystrix会用�?-->
+		<!-- hystrix会用�?-->
 		<repository>
             <id>nexus</id>
             <name>local private nexus</name>
