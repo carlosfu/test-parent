@@ -75,7 +75,7 @@ public class ConcurrentHashMapTest {
                         counterMap.get(key).getAndIncrement();
                     } else {
                         AtomicInteger tmpAtomicInteger = new AtomicInteger(1);
-                        counterMap.put(key, tmpAtomicInteger);
+                        counterMap.putIfAbsent(key, tmpAtomicInteger);
                     }
 
                 }
