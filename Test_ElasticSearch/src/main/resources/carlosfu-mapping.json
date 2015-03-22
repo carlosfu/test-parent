@@ -1,0 +1,48 @@
+{
+    "settings": {
+        "index": {
+            "number_of_replicas": "0",
+            "number_of_shards": "5",
+            "index.refresh_interval": "-1",
+            "index.translog.flush_threshold_ops": "1000000"
+        }
+    },
+    "mappings": {
+        "carlosfu-type": {
+            "_all": {
+                "enabled": false
+            },
+            "_source": {
+                "enabled": true
+            },
+            "_id": {
+                "enabled": true,
+                "store": "yes",
+                "index": "not_analyzed",
+                "path": "id"
+            },
+            "properties": {
+                "bimg": {
+                    "type": "string",
+                    "index": "no"
+                },
+                "title": {
+                    "type": "string",
+                    "index": "not_analyzed"
+                },
+                "tags": {
+                    "type": "string",
+                    "analyzer": "ik"
+                },
+                "id": {
+                    "type": "long",
+                    "store": "yes"
+                },
+                "indextime": {
+                    "type": "date",
+                    "format": "yyyy-MM-dd HH:mm:ss"
+                }
+            }
+        }
+    }
+}
