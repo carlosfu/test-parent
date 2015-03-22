@@ -27,5 +27,6 @@ public class ElasticSearchBase {
 	protected final static String TAGS = "tags";
 	protected final static String ID = "id";
 	protected final static String INDEX_TIME = "indextime";
-	
+	protected final static String CID = "cid";
+
 }

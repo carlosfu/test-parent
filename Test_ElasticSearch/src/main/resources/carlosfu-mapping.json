@@ -38,6 +38,9 @@
                     "type": "long",
                     "store": "yes"
                 },
+                "cid": {
+                    "type": "integer"
+                },
                 "indextime": {
                     "type": "date",
                     "format": "yyyy-MM-dd HH:mm:ss"

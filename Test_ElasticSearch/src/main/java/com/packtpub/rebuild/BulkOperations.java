@@ -14,7 +14,7 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * 来自elasticsearch-cookbook
+ * document 批量操作演示
  * 
  * @author leifu
  * @Date 2015年2月28日
@@ -28,7 +28,7 @@ public class BulkOperations extends ElasticSearchBase {
 		int i = 1001;
 		Map<String, Object> map = new HashMap<String, Object>();
 		map.put(ID, i);
-		map.put(BIG_IMG, "img " + i);
+		map.put(BIG_IMG, "img" + i);
 		map.put(TAGS, "tag1" + i + ";" + "tag2" + i);
 		map.put(TITLE, "title" + i);
 		map.put(INDEX_TIME, sdf.format(new Date()));
@@ -49,6 +49,7 @@ public class BulkOperations extends ElasticSearchBase {
 			map.put(TAGS, "tag1" + i + ";" + "tag2" + i);
 			map.put(TITLE, "title" + i);
 			map.put(INDEX_TIME, sdf.format(new Date()));
+			map.put(CID, i);
 			// 组装map结束
 			mapList.put(id, map);
 		}

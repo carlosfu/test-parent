@@ -1,15 +1,11 @@
 package com.packtpub.rebuild;
 
 import org.elasticsearch.action.admin.indices.mapping.put.PutMappingResponse;
-import org.elasticsearch.client.Client;
 import org.elasticsearch.common.xcontent.XContentBuilder;
 import org.junit.After;
 import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Test;
 
-import com.sohu.tv.index.data.engine.es.ElasticSearchCenter;
-import com.sohu.tv.index.data.engine.es.impl.ElasticSearchCenterImpl;
 import com.sohu.tv.index.data.engine.value.Result;
 
 import java.io.IOException;
