@@ -18,10 +18,15 @@ import org.elasticsearch.client.Client;
 import org.elasticsearch.common.xcontent.XContentBuilder;
 
 import java.util.LinkedHashMap;
+import java.util.List;
 import java.util.Map;
 
+
 /**
- * Created by yijunzhang on 15-2-2.
+ * ElasticSearch管理中心
+ * @author leifu
+ * @Date 2015-3-21
+ * @Time 下午3:37:15
  */
 public interface ElasticSearchCenter {
     
@@ -103,6 +108,25 @@ public interface ElasticSearchCenter {
      */
     public Result<BulkResponse> bulkDocuments(String index, String type, LinkedHashMap<String, Map<String, Object>> idMap);
 
+    
+    /**
+     * 批量删除文档
+     * @param index
+     * @param type
+     * @param ids
+     * @return
+     */
+    public Result<BulkResponse> bulkDeleteDocuments(String index, String type, List<String> ids);
+    
+    /**
+     * 批量更新文档
+     * @param index
+     * @param type
+     * @param idUpdateScriptMap
+     * @return
+     */
+    public Result<BulkResponse> bulkUpdateDocuments(String index, String type, Map<String, String> idUpdateMapScript);
+    
     /**
      * scroll特定类型索引
      * 第一次scrollId传递null

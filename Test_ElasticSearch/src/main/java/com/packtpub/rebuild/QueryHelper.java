@@ -1,4 +1,4 @@
-package com.packtpub;
+package com.packtpub.rebuild;
 
 import org.elasticsearch.action.bulk.BulkRequestBuilder;
 import org.elasticsearch.client.Client;

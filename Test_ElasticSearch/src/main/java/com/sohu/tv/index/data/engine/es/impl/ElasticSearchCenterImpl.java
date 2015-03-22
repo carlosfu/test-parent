@@ -16,6 +16,7 @@ import org.elasticsearch.action.admin.indices.mapping.put.PutMappingResponse;
 import org.elasticsearch.action.admin.indices.open.OpenIndexResponse;
 import org.elasticsearch.action.bulk.BulkRequestBuilder;
 import org.elasticsearch.action.bulk.BulkResponse;
+import org.elasticsearch.action.delete.DeleteRequestBuilder;
 import org.elasticsearch.action.delete.DeleteResponse;
 import org.elasticsearch.action.get.GetResponse;
 import org.elasticsearch.action.index.IndexRequestBuilder;
@@ -32,6 +33,7 @@ import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Map.Entry;
 
 import static org.elasticsearch.common.xcontent.XContentFactory.jsonBuilder;
 
@@ -192,6 +194,51 @@ public class ElasticSearchCenterImpl implements ElasticSearchCenter {
         }
         return result;
     }
+    
+    @Override
+	public Result<BulkResponse> bulkUpdateDocuments(String index, String type,
+			Map<String, String> idUpdateMapScript) {
+    	check(StringUtils.isNotBlank(index), "index is null");
+        check(StringUtils.isNotBlank(type), "type is null");
+        check(idUpdateMapScript != null && idUpdateMapScript.size() > 0, "idUpdateScriptMap is empty");
+        BulkRequestBuilder bulkRequest = client.prepareBulk();
+        Result<BulkResponse> result;
+        try {
+            for (Entry<String,String> entry : idUpdateMapScript.entrySet()) {
+            	String id = entry.getKey();
+            	String script = entry.getValue();
+                bulkRequest.add(client.prepareUpdate(index, type, id).setScript(script));
+            }
+            BulkResponse bulkResponse = bulkRequest.execute().actionGet();
+            result = new Result<BulkResponse>(true, bulkResponse);
+        } catch (Exception e) {
+            logger.error(e.getMessage(), e);
+            result = new Result<BulkResponse>(false, e);
+        }
+        return result;
+	}
+    
+    @Override
+	public Result<BulkResponse> bulkDeleteDocuments(String index, String type,
+			List<String> ids) {
+		check(StringUtils.isNotBlank(index), "index is null");
+        check(StringUtils.isNotBlank(type), "type is null");
+        check(ids != null && ids.size() > 0, "ids is empty");
+        BulkRequestBuilder bulkRequest = client.prepareBulk();
+        Result<BulkResponse> result;
+        try {
+            for (String id : ids) {
+                DeleteRequestBuilder deleteRequestBuilder = client.prepareDelete(index, type, id);
+                bulkRequest.add(deleteRequestBuilder);
+            }
+            BulkResponse bulkResponse = bulkRequest.execute().actionGet();
+            result = new Result<BulkResponse>(true, bulkResponse);
+        } catch (Exception e) {
+            logger.error(e.getMessage(), e);
+            result = new Result<BulkResponse>(false, e);
+        }
+        return result;
+	}
 
     @Override
     public ScrollResult scrollIndex(ScrollParam scrollParam) {
@@ -251,5 +298,6 @@ public class ElasticSearchCenterImpl implements ElasticSearchCenter {
     public Client getClient() {
         return client;
     }
+
 
 }

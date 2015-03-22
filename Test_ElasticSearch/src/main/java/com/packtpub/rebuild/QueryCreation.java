@@ -1,31 +1,30 @@
-package com.packtpub;
+package com.packtpub.rebuild;
 
 import org.elasticsearch.action.bulk.BulkRequestBuilder;
+import org.elasticsearch.action.search.SearchResponse;
 import org.elasticsearch.client.Client;
 import org.elasticsearch.common.xcontent.XContentFactory;
+import org.elasticsearch.index.query.BoolQueryBuilder;
+import org.elasticsearch.index.query.QueryBuilder;
+import org.elasticsearch.index.query.RangeQueryBuilder;
+import org.elasticsearch.index.query.TermFilterBuilder;
 
 import com.sohu.tv.index.data.engine.es.ElasticSearchCenter;
 import com.sohu.tv.index.data.engine.es.impl.ElasticSearchCenterImpl;
 
 import java.io.IOException;
 
-/**
- * 来自elasticsearch-cookbook
- * @author leifu
- * @Date 2015年2月28日
- * @Time 下午3:07:08
- */
-public class BulkOperations {
+import static org.elasticsearch.index.query.QueryBuilders.*;
+import static org.elasticsearch.index.query.FilterBuilders.*;
 
+public class QueryCreation {
     private static ElasticSearchCenter elasticSearchCenter = new ElasticSearchCenterImpl();
 
     public static void main( String[] args )
     {
-        
-        Client client = elasticSearchCenter.getClient();
-        
         String index="mytest";
         String type="mytype";
+        Client client = elasticSearchCenter.getClient();
         if(elasticSearchCenter.checkIndexExists(index))
             elasticSearchCenter.deleteIndex(index);
 
@@ -44,25 +43,21 @@ public class BulkOperations {
         }
 
         BulkRequestBuilder bulker=client.prepareBulk();
-        for (Integer i=1; i<=1000; i++){
-            bulker.add(client.prepareIndex(index, type, i.toString()).setSource("text", i.toString()));
+        for (Integer i=1; i<1000; i++){
+            bulker.add(client.prepareIndex(index, type, i.toString()).setSource("text", i.toString(), "number1", i+1, "number2", i%2));
         }
-        System.out.println("Number of actions for index: " + bulker.numberOfActions());
         bulker.execute().actionGet();
 
-        bulker=client.prepareBulk();
-        for (Integer i=1; i<=1000; i++){
-            bulker.add(client.prepareUpdate(index, type, i.toString()).setScript("ctx._source.text += 2"));
-        }
-        System.out.println("Number of actions for udpate: " + bulker.numberOfActions());
-        bulker.execute().actionGet();
+        client.admin().indices().prepareRefresh(index).execute().actionGet();
 
-        bulker=client.prepareBulk();
-        for (Integer i=1; i<=1000; i++){
-            bulker.add(client.prepareDelete(index, type, i.toString()));
-        }
-        System.out.println("Number of actions  for delete: " + bulker.numberOfActions());
-        bulker.execute().actionGet();
+        TermFilterBuilder filter = termFilter("number2", 1);
+        RangeQueryBuilder range = rangeQuery("number1").gt(500);
+        BoolQueryBuilder bool = boolQuery().must(range);
+
+        QueryBuilder query = filteredQuery(bool, filter);
+
+        SearchResponse response=client.prepareSearch(index).setTypes(type).setQuery(query).execute().actionGet();
+        System.out.println("Matched records of elements: " + response.getHits().getTotalHits());
 
         elasticSearchCenter.deleteIndex(index);
     }
