@@ -91,6 +91,7 @@
         <hystrix-metrics-event-stream.version>1.1.2</hystrix-metrics-event-stream.version>
         <jetty.version>9.1.5.v20140505</jetty.version>
         <elasticsearch.version>1.0.0</elasticsearch.version>
+        <fastjson.version>1.1.38</fastjson.version>
 	</properties>
 	<dependencyManagement>
 		<dependencies>
@@ -688,7 +689,7 @@
 				<version>${log4j.version}</version>
 			</dependency>
 			
-			<!-- hystrix�?�� -->
+			<!-- hystrix�?�� -->
 			<dependency>
                 <groupId>com.netflix.hystrix</groupId>
                 <artifactId>hystrix-core</artifactId>
@@ -721,6 +722,12 @@
 	            <artifactId>elasticsearch</artifactId>
 	            <version>${elasticsearch.version}</version>
 	        </dependency>
+	        
+	        <dependency>
+				<groupId>com.alibaba</groupId>
+				<artifactId>fastjson</artifactId>
+				<version>${fastjson.version}</version>
+			</dependency>
 
 		</dependencies>
 	</dependencyManagement>
@@ -815,7 +822,7 @@
 			<url>http://dev.hd.sohu.com.cn/nexus/content/groups/public</url>
 		</repository>
 		
-		<!-- hystrix会用�?-->
+		<!-- hystrix会用�?-->
 		<repository>
             <id>nexus</id>
             <name>local private nexus</name>
