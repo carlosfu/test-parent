@@ -41,7 +41,7 @@ public class ConcurrentHashMapTest {
                 @Override
                 public void run() {
 //                    threadNotSafeMethod();
-                    threadSafeMethod2();
+                    threadSafeMethod();
 
                     // 为了防止混淆,单独计数
                     counter.getAndIncrement();
@@ -50,7 +50,7 @@ public class ConcurrentHashMapTest {
                     }
                 }
                 
-                private void threadSafeMethod2() {
+                private void threadSafeMethod() {
                     if (counterMap.contains(key)) {
                         counterMap.get(key).getAndIncrement();
                     }else{
@@ -59,14 +59,6 @@ public class ConcurrentHashMapTest {
                         if (result != null) {
                             result.getAndIncrement();
                         }
-                    }
-                }
-
-                private void threadSafeMethod() {
-                    AtomicInteger tmpAtomicInteger = new AtomicInteger(1);
-                    AtomicInteger result = counterMap.putIfAbsent(key, tmpAtomicInteger);
-                    if (result != null) {
-                        result.getAndIncrement();
                     }
                 }
 
