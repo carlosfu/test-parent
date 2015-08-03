@@ -16,9 +16,6 @@
     </environments>
     
     <mappers>
-	    <!--xml方式-->
 	    <mapper resource="mapper/playerMapper.xml" />
-	    <!-- annotation方式 -->
-	    <mapper class="com.sohu.tv.mapper.PlayerAnnotationDao "/>
 	</mappers>
 </configuration>
