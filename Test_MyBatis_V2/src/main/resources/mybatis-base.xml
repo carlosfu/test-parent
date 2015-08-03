@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
+	<properties resource="db.properties"/>
 
 	<settings>
         <setting name="useColumnLabel" value="true"/>
@@ -17,10 +18,10 @@
             <transactionManager type="JDBC" />
             <!-- 连接池 -->
             <dataSource type="POOLED">
-                <property name="driver" value="com.mysql.jdbc.Driver" />
-                <property name="url" value="jdbc:mysql://localhost:3306/football" />
-                <property name="username" value="root" />
-                <property name="password" value="fuanxia" />
+                <property name="driver" value="${football.driver}" />
+                <property name="url" value="${football.url}" />
+                <property name="username" value="${football.username}" />
+                <property name="password" value="${football.password}" />
             </dataSource>
         </environment>
     </environments>

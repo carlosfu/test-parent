@@ -2,8 +2,38 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.sohu.tv.mapper.ClubDao">
 
+	<sql id="clubColumns">
+    	id,name,info,create_date,rank
+    </sql>
+
     <select id="getAllClubs" resultType="Club">
-        select id,name,info,create_date,rank from club
+        select <include refid="clubColumns"/> from club
+    </select>
+    
+    <select id="getByName" parameterType="string" resultType="Club">
+    	select <include refid="clubColumns"/> from club
+    	<where>
+    		name = #{name}
+    	</where>
+    </select>
+    
+    <update id="updateRank" parameterType="Club">
+    	update club
+    	<set>
+    		<if test="rank > 0">rank=#{rank}</if>
+    	</set>
+    	<where>
+    		id = #{id}
+    	</where>
+    </update>
+    
+    <select id="getByIds" parameterType="list" resultType="Club">
+    	select <include refid="clubColumns"/> from club
+    	<where>
+    		<foreach collection="ids" item="id" open="AND (" close=")" separator="or">
+    			id=#{id}
+    		</foreach>
+    	</where>
     </select>
 	
 </mapper>

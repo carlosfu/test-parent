@@ -18,7 +18,7 @@ public class PlayerMapperXmlTestV2 extends BaseTest {
      
     @Before
     public void before() {
-        sqlSession = sessionFactory.openSession();
+        sqlSession = sessionFactory.openSession(true);
     }
      
     @After
@@ -47,7 +47,7 @@ public class PlayerMapperXmlTestV2 extends BaseTest {
     @Test
     public void testUpdatePlayer() {
         PlayerDao playerDao = sqlSession.getMapper(PlayerDao.class);
-        playerDao.updatePlayer(new Player(3, "cafu", 45));
+        playerDao.updatePlayer(new Player(2, "caf222u", 45));
     }
      
     @Test
