@@ -35,5 +35,19 @@
     		</foreach>
     	</where>
     </select>
+    
+    <select id="select" parameterType="string" resultType="Club">
+    	select <include refid="clubColumns"/> from club
+    	<where>
+    		<choose>
+ 				<when test="">
+ 				</when>
+ 				<when test="">
+ 				</when>
+ 				<otherwise>
+ 				</otherwise>
+    		</choose>
+    	</where>
+    </select>
 	
 </mapper>
