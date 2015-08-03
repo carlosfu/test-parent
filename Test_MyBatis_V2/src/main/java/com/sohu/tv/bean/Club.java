@@ -2,25 +2,34 @@ package com.sohu.tv.bean;
 
 /**
  * 俱乐部
+ * 
  * @author leifu
- * @Date 2015年8月3日
- * @Time 下午1:46:51
+ * @Date 2015年7月28日
+ * @Time 下午1:43:53
  */
 public class Club {
     /**
-     * 自增id
+     * 俱乐部id
      */
     private int id;
-    
     /**
-     * 名称
+     * 俱乐部名
      */
-    private String name;
-    
+    private String clubName;
+
     /**
-     * 简介
+     * 俱乐部描述
      */
     private String clubInfo;
+
+    public Club(int id, String clubName, String clubInfo) {
+        this.id = id;
+        this.clubName = clubName;
+        this.clubInfo = clubInfo;
+    }
+
+    public Club() {
+    }
 
     public int getId() {
         return id;
@@ -30,12 +39,12 @@ public class Club {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
+    public String getClubName() {
+        return clubName;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setClubName(String clubName) {
+        this.clubName = clubName;
     }
 
     public String getClubInfo() {
@@ -48,8 +57,7 @@ public class Club {
 
     @Override
     public String toString() {
-        return "Club [id=" + id + ", name=" + name + ", clubInfo=" + clubInfo + "]";
+        return "Club [id=" + id + ", clubName=" + clubName + ", clubInfo=" + clubInfo + "]";
     }
-    
-    
+
 }
