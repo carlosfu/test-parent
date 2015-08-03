@@ -17,5 +17,6 @@
     
     <mappers>
 	    <mapper resource="mapper/playerMapper.xml" />
+	    <mapper class="com.sohu.tv.mapper.PlayerAnnotationDao"/>
 	</mappers>
 </configuration>
