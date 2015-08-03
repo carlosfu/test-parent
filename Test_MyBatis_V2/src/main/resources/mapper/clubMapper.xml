@@ -1,29 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.sohu.tv.mapper.ClubDao">
-    <!-- 错误
+
     <select id="getAllClubs" resultType="Club">
         select id,name,info,create_date,rank from club
     </select>
-    -->
-    
-    <!-- 别名 
-    <select id="getAllClubs" resultType="Club">
-        select id,name as clubName,info as clubInfo,create_date as createDate, rank from club
-    </select>
-    -->
-    
-    <!-- resultMap -->
-    <select id="getAllClubs" resultType="Club" resultMap="clubResultMap">
-        select id,name,info,create_date,rank from club
-    </select>
-    
-    <resultMap type="Club" id="clubResultMap">
-	    <id property="id" column="id"/>
-	    <result property="clubName" column="name"/>
-	    <result property="clubInfo" column="info"/>
-   	    <result property="createDate" column="create_date"/>
-   	    <result property="rank" column="rank"/>
-	</resultMap>
 	
 </mapper>

@@ -18,4 +18,12 @@ public interface ClubDao {
      * @return
      */
     public List<Club> getAllClubs();
+    
+    
+    /**
+     * 根据名称查询
+     * @param name
+     * @return
+     */
+    public Club getByName(String name);
 }

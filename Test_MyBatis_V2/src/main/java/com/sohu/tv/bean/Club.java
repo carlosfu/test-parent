@@ -17,12 +17,12 @@ public class Club {
     /**
      * 俱乐部名
      */
-    private String clubName;
+    private String name;
 
     /**
      * 俱乐部描述
      */
-    private String clubInfo;
+    private String info;
 
     /**
      * 创建日期
@@ -42,20 +42,20 @@ public class Club {
         this.id = id;
     }
 
-    public String getClubName() {
-        return clubName;
+    public String getName() {
+        return name;
     }
 
-    public void setClubName(String clubName) {
-        this.clubName = clubName;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public String getClubInfo() {
-        return clubInfo;
+    public String getInfo() {
+        return info;
     }
 
-    public void setClubInfo(String clubInfo) {
-        this.clubInfo = clubInfo;
+    public void setInfo(String info) {
+        this.info = info;
     }
 
     public Date getCreateDate() {
@@ -76,9 +76,10 @@ public class Club {
 
     @Override
     public String toString() {
-        return "Club [id=" + id + ", clubName=" + clubName + ", clubInfo=" + clubInfo + ", createDate=" + createDate
+        return "Club [id=" + id + ", name=" + name + ", info=" + info + ", createDate=" + createDate
                 + ", rank=" + rank + "]";
     }
+
 
 
 }
