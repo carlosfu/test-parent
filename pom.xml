@@ -35,6 +35,7 @@
     	<module>Test_ElasticSearch</module>
     <module>Test_ThreadPool_Monitor</module>
     <module>Test_MyBatis</module>
+    <module>Test_MyBatis_V2</module>
 	</modules>
 	<properties>
 		<test_common.version>1.0-SNAPSHOT</test_common.version>
