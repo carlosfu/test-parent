@@ -1,11 +1,14 @@
 package com.sohu.tv.bean;
+
+import java.io.Serializable;
+
 /**
  * 用户实体
  * @author leifu
  * @Date 2015年7月28日
  * @Time 上午9:48:09
  */
-public class Player {
+public class Player implements Serializable {
     /**
      * 用户id
      */

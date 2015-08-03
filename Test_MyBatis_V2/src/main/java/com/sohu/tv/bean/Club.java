@@ -1,5 +1,6 @@
 package com.sohu.tv.bean;
 
+import java.io.Serializable;
 import java.util.Date;
 
 /**
@@ -9,7 +10,7 @@ import java.util.Date;
  * @Date 2015年7月28日
  * @Time 下午1:43:53
  */
-public class Club {
+public class Club implements Serializable {
     /**
      * 俱乐部id
      */
