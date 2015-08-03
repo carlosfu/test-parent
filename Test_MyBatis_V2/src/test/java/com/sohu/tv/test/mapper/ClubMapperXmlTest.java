@@ -8,9 +8,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import com.sohu.tv.bean.Club;
-import com.sohu.tv.bean.Player;
 import com.sohu.tv.mapper.ClubDao;
-import com.sohu.tv.mapper.PlayerDao;
 
 /**
  * 俱乐部dao测试

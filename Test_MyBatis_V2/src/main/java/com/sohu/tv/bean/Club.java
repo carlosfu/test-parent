@@ -1,5 +1,7 @@
 package com.sohu.tv.bean;
 
+import java.util.Date;
+
 /**
  * 俱乐部
  * 
@@ -22,14 +24,15 @@ public class Club {
      */
     private String clubInfo;
 
-    public Club(int id, String clubName, String clubInfo) {
-        this.id = id;
-        this.clubName = clubName;
-        this.clubInfo = clubInfo;
-    }
-
-    public Club() {
-    }
+    /**
+     * 创建日期
+     */
+    private Date createDate;
+    
+    /**
+     * 排名
+     */
+    private int rank;
 
     public int getId() {
         return id;
@@ -55,9 +58,27 @@ public class Club {
         this.clubInfo = clubInfo;
     }
 
+    public Date getCreateDate() {
+        return createDate;
+    }
+
+    public void setCreateDate(Date createDate) {
+        this.createDate = createDate;
+    }
+
+    public int getRank() {
+        return rank;
+    }
+
+    public void setRank(int rank) {
+        this.rank = rank;
+    }
+
     @Override
     public String toString() {
-        return "Club [id=" + id + ", clubName=" + clubName + ", clubInfo=" + clubInfo + "]";
+        return "Club [id=" + id + ", clubName=" + clubName + ", clubInfo=" + clubInfo + ", createDate=" + createDate
+                + ", rank=" + rank + "]";
     }
+
 
 }
