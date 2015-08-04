@@ -26,6 +26,7 @@ public class SecondCacheTest extends BaseTest {
         SqlSession sqlSession2 = sessionFactory.openSession();
         SqlSession sqlSession3 = sessionFactory.openSession();
 
+
         int targetId = 1;
         
         PlayerDao playerDao1 = sqlSession1.getMapper(PlayerDao.class);

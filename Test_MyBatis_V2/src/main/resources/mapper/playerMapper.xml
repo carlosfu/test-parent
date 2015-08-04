@@ -3,8 +3,6 @@
 <mapper namespace="com.sohu.tv.mapper.PlayerDao">
 	
 	<cache type="com.sohu.tv.redis.MybatisRedisCache"/>
-	
-
     <select id="getPlayerById" parameterType="int" resultType="Player">
         select id,name,age from players where id=#{id}
     </select>
