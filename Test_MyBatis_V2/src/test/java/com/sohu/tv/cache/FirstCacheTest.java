@@ -7,8 +7,6 @@ import org.junit.Test;
 
 import com.sohu.tv.bean.Player;
 
-import com.sohu.tv.mapper.ClubDao;
-
 import com.sohu.tv.mapper.PlayerDao;
 import com.sohu.tv.test.mapper.BaseTest;
 

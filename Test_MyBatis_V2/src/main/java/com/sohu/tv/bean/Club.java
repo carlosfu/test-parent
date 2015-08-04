@@ -4,7 +4,7 @@ import java.io.Serializable;
 import java.util.Date;
 
 /**
- * 俱乐部2
+ * 俱乐部
  * 
  * @author leifu
  * @Date 2015年7月28日
