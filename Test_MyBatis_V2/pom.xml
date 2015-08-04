@@ -31,5 +31,9 @@
 			<groupId>ch.qos.logback</groupId>
 			<artifactId>logback-classic</artifactId>
 		</dependency>
+		<dependency>
+		  <groupId>com.sohu.tv</groupId>
+		  <artifactId>cachecloud-client-redis</artifactId>
+		</dependency>
 	</dependencies>
 </project>

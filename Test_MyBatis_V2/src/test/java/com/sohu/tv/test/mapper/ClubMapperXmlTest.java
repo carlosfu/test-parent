@@ -1,7 +1,6 @@
 package com.sohu.tv.test.mapper;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 import org.apache.ibatis.session.SqlSession;

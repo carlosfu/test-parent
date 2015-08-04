@@ -33,9 +33,9 @@
         <module>Test_Quartz</module>
     	<module>Test_CacheCloud</module>
     	<module>Test_ElasticSearch</module>
-    <module>Test_ThreadPool_Monitor</module>
-    <module>Test_MyBatis</module>
-    <module>Test_MyBatis_V2</module>
+	    <module>Test_ThreadPool_Monitor</module>
+	    <module>Test_MyBatis</module>
+	    <module>Test_MyBatis_V2</module>
 	</modules>
 	<properties>
 		<test_common.version>1.0-SNAPSHOT</test_common.version>
@@ -79,7 +79,7 @@
 		<IKanalyzer2012u6>1.0-SNAPSHOT</IKanalyzer2012u6>
 		<lucene-analyzers>3.6.0</lucene-analyzers>
 		<hive-exec>0.8.0</hive-exec>
-		<jedis.version>2.5.3-sohu-SNAPSHOT</jedis.version>
+		<jedis.version>2.6.3-sohutv-SNAPSHOT</jedis.version>
 		<jackson-mapper-asl>1.8.2</jackson-mapper-asl>
 		<commons-io>2.1</commons-io>
 		<indexMQ-redis.version>1.0-SNAPSHOT</indexMQ-redis.version>
@@ -95,6 +95,7 @@
         <elasticsearch.version>1.0.0</elasticsearch.version>
         <fastjson.version>1.1.38</fastjson.version>
         <mybatis.version>3.2.7</mybatis.version>
+        <cachecloud-client-redis.version>1.4-SNAPSHOT</cachecloud-client-redis.version>
 	</properties>
 	<dependencyManagement>
 		<dependencies>
@@ -737,6 +738,12 @@
 		        <artifactId>mybatis</artifactId>
 		        <version>${mybatis.version}</version>
 		    </dependency>
+		    
+		    <dependency>
+			  <groupId>com.sohu.tv</groupId>
+			  <artifactId>cachecloud-client-redis</artifactId>
+			  <version>${cachecloud-client-redis.version}</version>
+			</dependency>
 
 		</dependencies>
 	</dependencyManagement>
@@ -825,10 +832,6 @@
 			<url>
                 http://index.tv.sohuno.com/nexus/content/groups/public
             </url>
-		</repository>
-		<repository>
-			<id>sohuNexus</id>
-			<url>http://dev.hd.sohu.com.cn/nexus/content/groups/public</url>
 		</repository>
 		
 		<!-- hystrix会用�?-->

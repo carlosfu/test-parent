@@ -26,9 +26,11 @@ public class SecondCacheTest extends BaseTest {
         SqlSession sqlSession2 = sessionFactory.openSession();
         SqlSession sqlSession3 = sessionFactory.openSession();
 
+        int targetId = 1;
+        
         PlayerDao playerDao1 = sqlSession1.getMapper(PlayerDao.class);
         // 第一次发起请求，查询id为1的球员
-        Player player1 = playerDao1.getPlayerById(1);
+        Player player1 = playerDao1.getPlayerById(targetId);
         System.out.println("player1: " + player1);
         // 这里执行关闭操作，将sqlsession中的数据写到二级缓存区域
         sqlSession1.close();
@@ -36,7 +38,7 @@ public class SecondCacheTest extends BaseTest {
         // 使用sqlSession3执行commit()操作
         // 第一次发起请求，查询id为1的球员
         PlayerDao playerDao3 = sqlSession3.getMapper(PlayerDao.class);
-        Player player3 = playerDao3.getPlayerById(1);
+        Player player3 = playerDao3.getPlayerById(targetId);
         System.out.println("player3: " + player3);
         player3.setAge(60);
         playerDao3.updatePlayer(player3);
@@ -46,7 +48,7 @@ public class SecondCacheTest extends BaseTest {
 
         PlayerDao playerDao2 = sqlSession2.getMapper(PlayerDao.class);
         // 第二次发起请求，查询id为1的用户
-        Player player2 = playerDao2.getPlayerById(1);
+        Player player2 = playerDao2.getPlayerById(targetId);
         System.out.println("player2: " + player2);
         sqlSession2.close();
 
