@@ -36,6 +36,14 @@
     	</where>
     </select>
     
+    <insert id="batchSave" parameterType="List" useGeneratedKeys="true">
+    	insert into club(name,info,create_date,rank)
+    	values
+    	<foreach collection="clubList" item="club" index="index" separator=",">
+    		(#{club.name},#{club.info},#{club.createDate},#{club.rank})
+    	</foreach>
+    </insert>
+    
     <select id="select" parameterType="string" resultType="Club">
     	select <include refid="clubColumns"/> from club
     	<where>

@@ -1,6 +1,7 @@
 package com.sohu.tv.test.mapper;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import org.apache.ibatis.session.SqlSession;
@@ -9,6 +10,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import com.sohu.tv.bean.Club;
+import com.sohu.tv.cachecloud.client.basic.util.DateUtils;
 import com.sohu.tv.mapper.ClubDao;
 
 /**
@@ -69,4 +71,30 @@ public class ClubMapperXmlTest extends BaseTest {
         
         printClubList(clubDao.getByIds(ids));
     }
+    
+    @Test
+    public void testBatchSave() {
+        ClubDao clubDao = sqlSession.getMapper(ClubDao.class);
+        Club club1 = new Club();
+        club1.setName("Arsenal");
+        club1.setInfo("阿森纳");
+        club1.setCreateDate(new Date());
+        club1.setRank(15);
+
+        Club club2 = new Club();
+        club2.setName("ManUnited");
+        club2.setInfo("曼联");
+        club2.setCreateDate(new Date());
+        club2.setRank(18);
+        
+        List<Club> clubList = new ArrayList<Club>();
+        clubList.add(club1);
+        clubList.add(club2);
+        
+        clubDao.batchSave(clubList);
+
+    }
+    
+    
+    
 }

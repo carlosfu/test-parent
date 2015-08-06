@@ -44,4 +44,10 @@ public interface ClubDao {
      */
     public List<Club> getByIds(@Param("ids") List<Integer> ids);
     
+    /**
+     * 批量添加俱乐部
+     * @param clubList
+     */
+    public void batchSave(@Param("clubList") List<Club> clubList);
+    
 }
